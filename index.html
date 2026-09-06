@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth bg-[#120E0C] text-[#F5EBE6]">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Browser Extension, Circular Structure & Iframe Compatibility Guard -->
+    <script>
+      (function() {
+        // 1. Bulletproof JSON.stringify guard against circular structures (e.g. React Fiber & DOM nodes)
+        try {
+          var nativeStringify = JSON.stringify;
+          JSON.stringify = function(value, replacer, space) {
+            try {
+              return nativeStringify.call(this, value, replacer, space);
+            } catch (err) {
+              if (err && (err.name === 'TypeError' || String(err).indexOf('circular') !== -1)) {
+                var seen = new WeakSet();
+                return nativeStringify.call(this, value, function(k, v) {
+                  if (typeof v === 'object' && v !== null) {
+                    if (v instanceof Node || (typeof HTMLElement !== 'undefined' && v instanceof HTMLElement)) {
+                      return '[HTMLElement ' + (v.tagName || v.nodeName || 'Element') + ']';
+                    }
+                    if (seen.has(v)) {
+                      return '[Circular]';
+                    }
+                    seen.add(v);
+                  }
+                  if (typeof replacer === 'function') {
+                    return replacer(k, v);
+                  }
+                  return v;
+                }, space);
+              }
+              throw err;
+            }
+          };
+        } catch (ignored) {}
+
+        // 2. Sanitize console logging methods against direct DOM node serialization crashes
+        try {
+          function sanitizeArg(arg) {
+            if (!arg || typeof arg !== 'object') return arg;
+            if (arg instanceof Node || (typeof HTMLElement !== 'undefined' && arg instanceof HTMLElement)) {
+              return '[HTMLElement ' + (arg.tagName || arg.nodeName || 'Element') + ']';
+            }
+            return arg;
+          }
+          var methods = ['log', 'warn', 'error', 'info', 'debug'];
+          for (var i = 0; i < methods.length; i++) {
+            var m = methods[i];
+            var orig = console[m];
+            if (typeof orig === 'function') {
+              (function(originalFn) {
+                console[m] = function() {
+                  var cleanArgs = [];
+                  for (var j = 0; j < arguments.length; j++) {
+                    cleanArgs.push(sanitizeArg(arguments[j]));
+                  }
+                  return originalFn.apply(console, cleanArgs);
+                };
+              })(orig);
+            }
+          }
+        } catch (ignored) {}
+
+        // 3. Fetch protection against misconfigured browser extensions
+        try {
+          var originalFetch = window.fetch;
+          var currentFetch = originalFetch;
+          Object.defineProperty(window, 'fetch', {
+            configurable: true,
+            enumerable: true,
+            get: function() {
+              return currentFetch;
+            },
+            set: function(fn) {
+              currentFetch = fn;
+            }
+          });
+        } catch (e) {
+          try {
+            window.fetch = window.fetch;
+          } catch (ignored) {}
+        }
+
+        function isIgnorableError(msg) {
+          if (!msg) return false;
+          var s = String(msg).toLowerCase();
+          return (
+            s.indexOf('metamask') !== -1 ||
+            s.indexOf('ethereum') !== -1 ||
+            s.indexOf('circular') !== -1 ||
+            s.indexOf('converting circular structure') !== -1 ||
+            (s.indexOf('fetch') !== -1 && s.indexOf('getter') !== -1)
+          );
+        }
+
+        window.addEventListener('error', function(e) {
+          var message = e && (e.message || (e.error && e.error.message));
+          if (isIgnorableError(message)) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            return true;
+          }
+        }, true);
+
+        window.addEventListener('unhandledrejection', function(e) {
+          var reason = e && (e.reason && (e.reason.message || e.reason));
+          if (isIgnorableError(reason)) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            return true;
+          }
+        }, true);
+      })();
+    </script>
+
+    <title>Near Home — Premium Shortlet Agency</title>
+    <meta name="description" content="An immersive, scrollytelling web experience for Near Home, a premium shortlet agency offering authentic warmth and curated residences worldwide." />
+    <meta property="og:title" content="Near Home — Premium Shortlet Agency" />
+    <meta property="og:description" content="An immersive, scrollytelling web experience for Near Home, a premium shortlet agency offering authentic warmth and curated residences worldwide." />
+    <meta property="og:type" content="website" />
+
+    <!-- Google Fonts: Playfair Display, Plus Jakarta Sans, Cormorant Garamond -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  </head>
+  <body class="bg-[#120E0C] text-[#F5EBE6] font-sans antialiased selection:bg-[#F5EBE6] selection:text-[#120E0C] min-h-screen">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

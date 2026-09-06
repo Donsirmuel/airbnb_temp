@@ -1,0 +1,8 @@
+{
+  "name": "Near Home — Premium Shortlet Agency",
+  "description": "An immersive, scrollytelling web experience for Near Home, a premium shortlet agency offering authentic warmth and curated residences worldwide.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
