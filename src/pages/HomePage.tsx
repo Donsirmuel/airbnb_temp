@@ -242,7 +242,7 @@ export const HomePage: React.FC = () => {
         <div className="absolute inset-0 -top-24 -bottom-24 z-0 overflow-hidden pointer-events-none">
           <div className="hero-bg-image w-full h-[130%] -top-[15%] relative will-change-transform">
             <CuratedImage
-              src="/lagos/lagos1.jfif"
+              src="/hero-image.avif"
               alt="Warm Architectural Living Room"
               containerClassName="w-full h-full"
               className="filter brightness-[0.45] contrast-[1.05]"
