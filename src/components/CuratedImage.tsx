@@ -10,7 +10,7 @@ interface CuratedImageProps {
   onLoad?: () => void;
 }
 
-const FALLBACK_IMAGE = 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=85';
+const FALLBACK_IMAGE = '/brisbane/brisbane1.jfif';
 
 export const CuratedImage: React.FC<CuratedImageProps> = ({
   src,

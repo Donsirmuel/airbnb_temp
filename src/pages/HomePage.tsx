@@ -158,21 +158,21 @@ export const HomePage: React.FC = () => {
 
   const testimonials = [
     {
-      quote: "The acoustic isolation at The Oakwood Loft in Lagos was extraordinary. I recorded studio podcasts and ran transatlantic client workshops without a single interruption.",
+      quote: "Thought Lagos would be noisy — it wasn't. That Ikoyi flat stayed quiet even with the windows shut, took client calls all week without anything bleeding through. Small terrace saved me in the evenings.",
       author: "Adewale Vance",
-      role: "Principal Product Architect",
+      role: "Product Lead, stayed 11 nights",
       stay: "The Oakwood Loft · Lagos",
     },
     {
-      quote: "The Mews Library in Kensington felt like an authentic private club. Double-height oak shelves, crackling fireplace, and an honest 1.2Gbps connection for deep writing.",
+      quote: "Expected a tiny mews and got actual space. High ceilings, fireplace that works, and the lane is silent at night. I got more writing done in three days there than the week before.",
       author: "Eleanor Sterling",
-      role: "Contributing Editor",
+      role: "Writer, stayed 6 nights",
       stay: "The Mews Library · London",
     },
     {
-      quote: "Near Home represents the antithesis of sterile cookie-cutter rentals. The Hinoki soaking tub and moss courtyard in Kyoto were a spiritual reset after Tokyo meetings.",
+      quote: "Kyoto place is low and quiet — tatami floors, paper screens, the little bath is deep and smells like hinoki. Walked to Higashiyama every morning, home by 9 and still quiet.",
       author: "Kenji Takahashi",
-      role: "Creative Director",
+      role: "Creative Director, stayed 8 nights",
       stay: "The Hinoki Pavilion · Kyoto",
     },
   ];
@@ -242,7 +242,7 @@ export const HomePage: React.FC = () => {
         <div className="absolute inset-0 -top-24 -bottom-24 z-0 overflow-hidden pointer-events-none">
           <div className="hero-bg-image w-full h-[130%] -top-[15%] relative will-change-transform">
             <CuratedImage
-              src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2000&q=85"
+              src="/lagos/lagos1.jfif"
               alt="Warm Architectural Living Room"
               containerClassName="w-full h-full"
               className="filter brightness-[0.45] contrast-[1.05]"
@@ -493,7 +493,7 @@ export const HomePage: React.FC = () => {
           >
             {/* Cinematic Full-Bleed Background Image */}
             <CuratedImage
-              src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2000&q=85"
+              src="/brisbane/brisbane6.jfif"
               alt="Cinematic Living Sanctuary"
               containerClassName="w-full h-full absolute inset-0"
               className="filter brightness-[0.72] contrast-[1.08]"
@@ -503,14 +503,7 @@ export const HomePage: React.FC = () => {
             {/* Architectural Vignette Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#0D0A09]/95 via-[#0D0A09]/45 to-[#0D0A09]/75 pointer-events-none"></div>
 
-            {/* Top Category Indicator */}
-            <div className="relative z-10 w-full flex justify-center">
-              <span className="text-[10px] sm:text-xs uppercase tracking-[0.35em] font-mono text-[#A3968E] px-4 py-1.5 rounded-full bg-[#120E0C]/60 backdrop-blur-md border border-[#F5EBE6]/10">
-                Atmosphere & Architecture
-              </span>
-            </div>
-
-            {/* Central Typography Header with deliberate gap-y and max-width */}
+            {/* Central Typography Header — no top/bottom border pills to keep mobile animation clean */}
             <div className="relative z-10 text-center px-4 max-w-3xl my-auto flex flex-col items-center gap-y-4 sm:gap-y-6">
               <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-[#F5EBE6] font-normal leading-[1.12]">
                 Designed for uninterrupted thought.
@@ -518,22 +511,6 @@ export const HomePage: React.FC = () => {
               <p className="text-sm sm:text-base text-[#D6CBC5] max-w-xl mx-auto font-light leading-relaxed">
                 Quiet acoustics, natural materials, and deliberate ergonomics create an environment where creativity and deep rest feel effortless.
               </p>
-            </div>
-
-            {/* Natural Flex Bottom Row: Badges in natural flow, avoiding any text overlap */}
-            <div className="relative z-20 flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-8 pointer-events-none">
-              <div className="floating-badge px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#1C1613]/90 border border-[#F5EBE6]/20 backdrop-blur-md text-[11px] sm:text-xs font-mono text-[#F5EBE6] flex items-center gap-2 shadow-lg">
-                <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400" />
-                <span>Sub-35 dB Sound Isolation</span>
-              </div>
-              <div className="floating-badge px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#1C1613]/90 border border-[#F5EBE6]/20 backdrop-blur-md text-[11px] sm:text-xs font-mono text-[#F5EBE6] flex items-center gap-2 shadow-lg">
-                <Wifi className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400" />
-                <span>1Gbps Dedicated Fiber</span>
-              </div>
-              <div className="floating-badge px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#1C1613]/90 border border-[#F5EBE6]/20 backdrop-blur-md text-[11px] sm:text-xs font-mono text-[#F5EBE6] flex items-center gap-2 shadow-lg">
-                <Key className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-300" />
-                <span>Keyless Contactless Arrival</span>
-              </div>
             </div>
           </div>
         </div>
