@@ -13,7 +13,7 @@ export const Navbar: React.FC = () => {
     { label: 'Residences', path: '/residences' },
     { label: 'Standards', path: '/experience' },
     { label: 'Reviews', path: '/#reviews' },
-    { label: 'Concierge', path: '/support' },
+    { label: 'Help', path: '/support' },
   ];
 
   const handleLinkClick = (path: string) => {
@@ -117,7 +117,7 @@ export const Navbar: React.FC = () => {
             onClick={() => handleLinkClick('/residences')}
             className="hidden sm:inline-flex bg-[#F5EBE6] text-[#120E0C] px-5 py-2.5 rounded-full font-medium text-xs tracking-wider uppercase hover:bg-white transition-all shadow-sm cursor-pointer"
           >
-            Explore Portfolio
+            Browse homes
           </button>
 
           {/* Mobile Menu Toggle */}
@@ -152,7 +152,7 @@ export const Navbar: React.FC = () => {
               onClick={() => handleLinkClick('/residences')}
               className="w-full bg-[#F5EBE6] text-[#120E0C] py-3 rounded-full font-semibold text-xs uppercase tracking-wider text-center cursor-pointer"
             >
-              Explore Portfolio
+              Browse homes
             </button>
           </div>
         </div>

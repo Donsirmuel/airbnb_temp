@@ -18,9 +18,9 @@ export const Footer: React.FC = () => {
               <Key className="w-5 h-5 text-[#F5EBE6]" />
             </div>
             <div>
-              <h4 className="text-sm font-serif text-[#F5EBE6] font-medium">Non-Shared Residences</h4>
+              <h4 className="text-sm font-serif text-[#F5EBE6] font-medium">Private homes</h4>
               <p className="text-xs text-[#A3968E] mt-1 leading-relaxed">
-                100% private entrance, dedicated living space, and no host or guest cohabitation.
+                You have the entire apartment to yourself with your own front door. No shared kitchens or hosts living on site.
               </p>
             </div>
           </div>
@@ -30,9 +30,9 @@ export const Footer: React.FC = () => {
               <WifiHigh className="w-5 h-5 text-[#F5EBE6]" />
             </div>
             <div>
-              <h4 className="text-sm font-serif text-[#F5EBE6] font-medium">Verified 1Gbps Fiber</h4>
+              <h4 className="text-sm font-serif text-[#F5EBE6] font-medium">Tested fiber internet</h4>
               <p className="text-xs text-[#A3968E] mt-1 leading-relaxed">
-                Benchmark tested and speed-verified prior to every check-in for uninterrupted remote work.
+                We test the upload and download speeds before you arrive so video calls and large file transfers run smoothly.
               </p>
             </div>
           </div>
@@ -42,9 +42,9 @@ export const Footer: React.FC = () => {
               <ShieldCheck className="w-5 h-5 text-[#F5EBE6]" />
             </div>
             <div>
-              <h4 className="text-sm font-serif text-[#F5EBE6] font-medium">50-Point Physical Audit</h4>
+              <h4 className="text-sm font-serif text-[#F5EBE6] font-medium">Checked in person</h4>
               <p className="text-xs text-[#A3968E] mt-1 leading-relaxed">
-                Soundproof STC ratings, water pressure, climate stability, and hygiene verified in person.
+                We visit each home to inspect window sealing, water pressure, air conditioning, and cleanliness before listing it.
               </p>
             </div>
           </div>
@@ -58,12 +58,12 @@ export const Footer: React.FC = () => {
             <div>
               <BrandLogo size="lg" />
               <p className="text-xs text-[#A3968E] mt-4 max-w-sm leading-relaxed">
-                A boutique collection of design-forward residences crafted for deep focus, restorative rest, and authentic urban living across global creative capitals.
+                Furnished apartments and homes across ten cities, set up with real workspaces, reliable internet, and quiet bedrooms.
               </p>
             </div>
 
             <div className="mt-8">
-              <span className="text-[10px] uppercase tracking-widest text-[#A3968E] block font-mono mb-2">Direct Concierge Hotline</span>
+              <span className="text-[10px] uppercase tracking-widest text-[#A3968E] block font-mono mb-2">Direct WhatsApp desk</span>
               <a
                 href={getWhatsAppConciergeUrl('Hello Near Home team, I need assistance with a reservation inquiry.')}
                 target="_blank"
@@ -83,7 +83,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2.5 text-xs">
               <li>
                 <button onClick={() => navigate('/residences')} className="hover:text-[#F5EBE6] transition-colors">
-                  All Global Residences
+                  All residences
                 </button>
               </li>
               <li>
@@ -114,33 +114,33 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Column 3: Experiences */}
+          {/* Column 3: Standards */}
           <div>
-            <h5 className="font-mono text-xs uppercase tracking-widest text-[#F5EBE6] mb-4">Hospitality</h5>
+            <h5 className="font-mono text-xs uppercase tracking-widest text-[#F5EBE6] mb-4">Standards</h5>
             <ul className="space-y-2.5 text-xs">
               <li>
                 <button onClick={() => navigate('/experience')} className="hover:text-[#F5EBE6] transition-colors">
-                  Keyless Smart Arrival
+                  Keyless door entry
                 </button>
               </li>
               <li>
                 <button onClick={() => navigate('/experience')} className="hover:text-[#F5EBE6] transition-colors">
-                  Ergonomic Workstations
+                  Workspaces and seating
                 </button>
               </li>
               <li>
                 <button onClick={() => navigate('/experience')} className="hover:text-[#F5EBE6] transition-colors">
-                  Private Chef & Dining
+                  Meals and groceries
                 </button>
               </li>
               <li>
                 <button onClick={() => navigate('/experience')} className="hover:text-[#F5EBE6] transition-colors">
-                  Chauffeur Transfers
+                  Airport pickups
                 </button>
               </li>
               <li>
                 <button onClick={() => navigate('/support')} className="hover:text-[#F5EBE6] transition-colors">
-                  Long-Term Stays (30+ Days)
+                  Monthly stays (30+ days)
                 </button>
               </li>
             </ul>
@@ -148,11 +148,11 @@ export const Footer: React.FC = () => {
 
           {/* Column 4: Support & Currency */}
           <div>
-            <h5 className="font-mono text-xs uppercase tracking-widest text-[#F5EBE6] mb-4">Client Support</h5>
+            <h5 className="font-mono text-xs uppercase tracking-widest text-[#F5EBE6] mb-4">Help & contact</h5>
             <ul className="space-y-2.5 text-xs mb-6">
               <li>
                 <button onClick={() => navigate('/support')} className="hover:text-[#F5EBE6] transition-colors">
-                  Inquiries & Contact
+                  Questions and inquiries
                 </button>
               </li>
               <li>
@@ -161,11 +161,11 @@ export const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
-                <span className="text-stone-400">Emergency Host: +234 1 800 9900</span>
+                <span className="text-stone-400">In-stay line: +234 1 800 9900</span>
               </li>
             </ul>
 
-            <span className="text-[10px] uppercase tracking-widest text-[#A3968E] block font-mono mb-2">Display Currency</span>
+            <span className="text-[10px] uppercase tracking-widest text-[#A3968E] block font-mono mb-2">Display currency</span>
             <div className="flex flex-wrap gap-1.5">
               {currencyList.map(c => (
                 <button
@@ -190,13 +190,13 @@ export const Footer: React.FC = () => {
           <p>© {new Date().getFullYear()} Near Home Residences Limited. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <button onClick={() => navigate('/experience')} className="hover:text-[#F5EBE6] transition-colors">
-              Verification Standards
+              How we check homes
             </button>
             <button onClick={() => navigate('/support')} className="hover:text-[#F5EBE6] transition-colors">
-              Privacy & Cookies
+              Privacy policy
             </button>
             <button onClick={() => navigate('/support')} className="hover:text-[#F5EBE6] transition-colors">
-              Booking Terms & Conditions
+              Booking and cancellation terms
             </button>
           </div>
         </div>

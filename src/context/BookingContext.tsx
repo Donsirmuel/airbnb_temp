@@ -17,28 +17,28 @@ export const CURRENCY_MAP: Record<Currency, CurrencyInfo> = {
 
 export const ADDON_PRICING_USD: Record<keyof BookingAddOns, { title: string; price: number; type: 'per_stay' | 'per_night'; desc: string }> = {
   airportTransfer: {
-    title: 'Private Chauffeur Airport Transfer',
+    title: 'Airport pickup',
     price: 65,
     type: 'per_stay',
-    desc: 'Executive Mercedes transfer with baggage concierge upon arrival & departure',
+    desc: 'A driver meets you outside arrivals and takes you straight to the apartment.',
   },
   privateChef: {
-    title: 'Private Chef Dining Experience',
+    title: 'Cooked dinner on arrival',
     price: 180,
     type: 'per_night',
-    desc: 'Bespoke multi-course dinner prepared daily with market-fresh local produce',
+    desc: 'A local cook prepares a fresh dinner in your kitchen on your first evening.',
   },
   dailyHousekeeping: {
-    title: 'Daily Turndown & Housekeeping',
+    title: 'Daily housekeeping',
     price: 45,
     type: 'per_night',
-    desc: 'Meticulous daily linen refresh, towel replenishment, and kitchen polishing',
+    desc: 'Daily tidy up, fresh towels, and made beds every morning.',
   },
   stockedKitchen: {
-    title: 'Artisan Welcome Pantry Provisioning',
+    title: 'Groceries on arrival',
     price: 55,
     type: 'per_stay',
-    desc: 'Locally baked sourdough, organic fruits, single-origin roasts & regional wines',
+    desc: 'Fresh bread, milk, eggs, seasonal fruit, and ground coffee waiting in the kitchen.',
   },
 };
 

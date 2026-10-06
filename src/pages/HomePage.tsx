@@ -179,20 +179,20 @@ export const HomePage: React.FC = () => {
 
   const homeFaqs = [
     {
-      q: "How does Near Home guarantee acoustic isolation and quietude?",
-      a: "Every residence in our portfolio undergoes acoustic frequency auditing to ensure ambient indoor background noise levels do not exceed 35 dB. We implement acoustic double/triple-glazed windows, solid timber doors with perimeter drop-seals, and architectural insulation so you can work, think, and rest without street or neighbor disturbance.",
+      q: "How do you make sure the apartments are actually quiet?",
+      a: "We inspect each home in person before listing it. We check that bedroom windows are double-glazed (two sheets of glass with a sealed air pocket that cuts street noise), interior doors are solid wood with bottom seals, and the bedroom isn't sharing a thin wall with a noisy lift shaft. If an apartment is on a bustling avenue, we mention that directly in the listing.",
     },
     {
-      q: "What does verified 1Gbps connectivity mean in practice?",
-      a: "Before each reservation, our local concierge runs live wired and wireless speed and latency tests. We provide redundant symmetrical fiber connections with mesh Wi-Fi 6 coverage throughout the entire residence, ensuring frictionless video conferencing, large asset transfers, and simultaneous streaming.",
+      q: "How fast and reliable is the Wi-Fi?",
+      a: "Each home has its own dedicated fiber line (not a shared building connection). We test speeds before you check in so you know it can handle multiple video calls and heavy file uploads. In cities with power cuts like Lagos and Abuja, the router and workspace outlets are wired to an inverter and battery backup so you don't drop off meetings when the power grid goes down.",
     },
     {
-      q: "Can I book for flexible or extended stays (1 week to 6 months)?",
-      a: "Yes. All Near Home properties are fully furnished, fully serviced residences configured for both short-term retreats and long-term stays. Stays beyond 14 nights receive weekly architectural housekeeping, linen rotations, and bespoke concierge rates.",
+      q: "Can I book for a few weeks or a few months?",
+      a: "Yes. Every home is fully set up for daily living, including a kitchen with cookware, laundry in the unit, and weekly linen changes. Stays of two weeks or longer qualify for a discounted extended-stay rate.",
     },
     {
-      q: "How do check-in, keyless arrival, and concierge assistance work?",
-      a: "Arrival is entirely seamless and keyless. 24 hours prior to check-in, you receive encrypted mobile access credentials and a personal orientation briefing. Our dedicated concierge team is available 24/7 via private WhatsApp or direct line for private airport transfers, pantry provisioning, or private chef arrangements.",
+      q: "How do check-in and arrival work?",
+      a: "Most homes use keyless keypad locks. We send your door code and detailed directions 24 hours before you arrive, so you can let yourself in anytime after 3:00 PM without waiting for someone to meet you with keys. If you need anything during your stay, you can text our local team directly on WhatsApp.",
     },
   ];
 
@@ -273,7 +273,7 @@ export const HomePage: React.FC = () => {
           </h1>
 
           <p className="hero-subtext text-base sm:text-lg text-[#D6CBC5] max-w-xl font-light leading-relaxed">
-            Handpicked architectural apartments designed for effortless comfort, productivity, and rest.
+            Furnished apartments across ten cities, set up with proper desks, tested fiber internet, and quiet bedrooms.
           </p>
         </div>
 
@@ -340,7 +340,7 @@ export const HomePage: React.FC = () => {
               className="w-full h-full min-h-[46px] bg-[#F5EBE6] hover:bg-white text-[#120E0C] font-semibold text-xs tracking-wider uppercase rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer"
             >
               <Search className="w-4 h-4" />
-              <span>Search Residences</span>
+              <span>Search homes</span>
             </button>
           </form>
         </div>
@@ -352,14 +352,14 @@ export const HomePage: React.FC = () => {
       <section className="py-28 sm:py-36 px-6 sm:px-12 lg:px-20 max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 sm:mb-20 gap-6 border-b border-[#F5EBE6]/10 pb-8">
           <div>
-            <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#A3968E] block mb-2">Curated Collection</span>
-            <h2 className="font-serif text-3xl sm:text-5xl text-[#F5EBE6] font-normal">Flagship Residences</h2>
+            <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#A3968E] block mb-2">Featured stays</span>
+            <h2 className="font-serif text-3xl sm:text-5xl text-[#F5EBE6] font-normal">Homes ready for your next trip</h2>
           </div>
           <button
             onClick={() => navigate('/residences')}
             className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#F5EBE6] hover:text-white transition-colors group cursor-pointer"
           >
-            <span>View All Residences</span>
+            <span>See all homes</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
           </button>
         </div>
@@ -465,7 +465,7 @@ export const HomePage: React.FC = () => {
                     </div>
 
                     <span className="text-[#F5EBE6] font-medium flex items-center gap-1 group-hover:translate-x-1.5 transition-transform text-xs">
-                      Reserve Stay →
+                      View home →
                     </span>
                   </div>
                 </div>
@@ -503,13 +503,13 @@ export const HomePage: React.FC = () => {
             {/* Architectural Vignette Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#0D0A09]/95 via-[#0D0A09]/45 to-[#0D0A09]/75 pointer-events-none"></div>
 
-            {/* Central Typography Header — no top/bottom border pills to keep mobile animation clean */}
+            {/* Central Typography Header */}
             <div className="relative z-10 text-center px-4 max-w-3xl my-auto flex flex-col items-center gap-y-4 sm:gap-y-6">
               <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-[#F5EBE6] font-normal leading-[1.12]">
-                Designed for uninterrupted thought.
+                Homes where you can actually get work done.
               </h2>
               <p className="text-sm sm:text-base text-[#D6CBC5] max-w-xl mx-auto font-light leading-relaxed">
-                Quiet acoustics, natural materials, and deliberate ergonomics create an environment where creativity and deep rest feel effortless.
+                Double-glazed windows to keep street noise out, an office chair you can sit in all afternoon, and reliable Wi-Fi that won't drop during a meeting.
               </p>
             </div>
           </div>
@@ -517,14 +517,14 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ============================================================ */}
-      {/* GUEST REFLECTIONS SECTION ("Words from Residents")          */}
+      {/* GUEST NOTES SECTION                                         */}
       {/* ============================================================ */}
       <section id="reviews" className="py-28 sm:py-36 px-6 sm:px-12 lg:px-20 max-w-7xl mx-auto border-t border-[#F5EBE6]/10">
         <div className="text-center max-w-2xl mx-auto mb-16 sm:mb-20 flex flex-col items-center gap-y-3.5">
-          <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#A3968E] block">Reflections</span>
-          <h2 className="font-serif text-3xl sm:text-5xl text-[#F5EBE6] font-normal leading-tight">Words from Residents</h2>
+          <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#A3968E] block">Guest notes</span>
+          <h2 className="font-serif text-3xl sm:text-5xl text-[#F5EBE6] font-normal leading-tight">What guests say about staying here</h2>
           <p className="text-sm text-[#A3968E] max-w-md font-light leading-relaxed">
-            Impressions from authors, founders, and traveling professionals who made our residences their temporary home.
+            Direct feedback from guests who worked, rested, or lived in our homes for a week or a month.
           </p>
         </div>
 
@@ -555,10 +555,10 @@ export const HomePage: React.FC = () => {
       {/* ============================================================ */}
       <section id="faq" className="py-28 sm:py-36 px-6 sm:px-12 lg:px-20 max-w-5xl mx-auto border-t border-[#F5EBE6]/10">
         <div className="text-center max-w-2xl mx-auto mb-14 sm:mb-16 flex flex-col items-center gap-y-3.5">
-          <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#A3968E] block">Clarifications</span>
-          <h2 className="font-serif text-3xl sm:text-5xl text-[#F5EBE6] font-normal leading-tight">Frequently Answered</h2>
+          <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#A3968E] block">Common questions</span>
+          <h2 className="font-serif text-3xl sm:text-5xl text-[#F5EBE6] font-normal leading-tight">Frequently asked questions</h2>
           <p className="text-sm text-[#A3968E] max-w-md font-light leading-relaxed">
-            Essential details regarding acoustic standards, residential leases, connectivity, and arrival logistics.
+            Straightforward details on noise levels, internet speeds, arrival, and extended stays.
           </p>
         </div>
 

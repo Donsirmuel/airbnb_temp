@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { 
   ShieldCheck, WifiHigh as Wifi, Key, SpeakerHigh as Volume2, Sparkle as Sparkles, Coffee, 
   ForkKnife as Utensils, Car, Check, ArrowRight, ChatCircleDots as MessageSquare, Bed, 
-  ThermometerSimple as Thermometer, CheckCircle as CheckCircle2 
+  ThermometerSimple as Thermometer, CheckCircle as CheckCircle2, Lightning 
 } from '@phosphor-icons/react';
 import { useBooking } from '../context/BookingContext';
 
@@ -12,53 +12,53 @@ export const ExperiencePage: React.FC = () => {
 
   const auditData = {
     acoustics: {
-      title: 'Acoustic STC Isolation & Quietness',
-      desc: 'We measure background ambient decibels with professional meters to ensure quiet interior zones below 38 dB during nocturnal hours.',
+      title: 'Sound and quietness',
+      desc: 'We check the room with the windows open and closed to make sure you won\'t be kept awake at night or interrupted during calls.',
       checks: [
-        'Acoustic double-glazed windows and thermal break frames',
-        'Sound-isolated partition walls separating master suites',
-        'Vibration-dampened HVAC and air distribution ducts',
-        'Solid-core interior doors with acoustic drop seals',
+        'Double-glazed windows that latch firmly to block street traffic',
+        'Solid wood bedroom doors with perimeter bottom seals',
+        'Quiet air conditioners that do not rattle or hum loudly',
+        'Bedrooms positioned away from lift shafts and noisy stairwells',
       ],
     },
     connectivity: {
-      title: 'Enterprise Gigabit Fiber Benchmarking',
-      desc: 'No shared residential modems. Every apartment boasts an independent, business-grade dedicated fiber line.',
+      title: 'Fiber internet and Wi-Fi',
+      desc: 'Every home has its own dedicated fiber line. We test upload and download speeds and confirm the Wi-Fi reaches every room.',
       checks: [
-        'Unthrottled download speeds verified ≥ 1,000 Mbps',
-        'Consistent upload speed verified ≥ 500 Mbps for video streaming',
-        'Sub-8ms latency and zero packet loss to transatlantic gateways',
-        'Dual-band Mesh 6E access points eliminating interior dead spots',
+        'Speed-tested connection that handles multiple simultaneous video calls',
+        'High upload speeds for screen sharing and transferring large files',
+        'Wi-Fi routers placed so there are no weak signals in the bedroom or workspace',
+        'Router connected to battery backup in cities with electrical grid cuts',
       ],
     },
     sleep: {
-      title: 'Sleep Architecture & Restorative Rest',
-      desc: 'Rest is the foundational luxury of travel. We invest in medical-grade support and organic natural fibers.',
+      title: 'Beds and curtains',
+      desc: 'A bad mattress ruins a trip. We check mattress firmness, pillows, and whether the curtains actually block morning light.',
       checks: [
-        'Custom multi-layer natural latex and pocket-coil mattresses',
-        '400+ thread count Egyptian and Belgian long-staple linens',
-        'Dual-density pillow menu (down-alternative & memory foam)',
-        '100% blackout drapery and acoustic side-channel tracks',
+        'Supportive hybrid or pocket-coil mattresses in every bedroom',
+        'Washed cotton sheets and fresh duvet covers',
+        'A choice of firm and soft pillows',
+        'Blackout curtains or window blinds that block morning sunlight',
       ],
     },
     climate: {
-      title: 'Climate Stability & Water Hydrotherapy',
-      desc: 'Independent multi-zone climate conditioning and high-flow rainwater shower pressure.',
+      title: 'Showers, water, and cooling',
+      desc: 'We test water pressure, temperature consistency, and air conditioning units in person before listing.',
       checks: [
-        'Multi-split whisper-quiet Inverter air conditioning',
-        'High-flow thermostatic thermoresistant shower fixtures',
-        'Continuous high-capacity hot water recirculation systems',
-        'HEPA fine particulate air filtration and indoor humidity balancing',
+        'Strong water pressure with consistent, reliable hot water',
+        'Independent air conditioning units in each bedroom and the living room',
+        'Clean air filters inspected before arrival',
+        'Backup water storage tanks in buildings where municipal water is intermittent',
       ],
     },
     culinary: {
-      title: 'Artisan Kitchen & Craft Coffee Provisioning',
-      desc: 'Fully outfitted chef kitchens designed for genuine home cooking and single-origin coffee rituals.',
+      title: 'Kitchen and cooking essentials',
+      desc: 'Practical cooking tools so you can make proper meals, not just microwave takeout containers.',
       checks: [
-        'Japanese ceramic Santoku knives and cast-iron cookware',
-        'Chemex pour-over, electric gooseneck kettle & burr grinder',
-        'Single-origin roasted whole beans sourced from neighborhood roasters',
-        'Sub-Zero / Bosch dishwashers and induction cooktops',
+        'Sharp kitchen knives, cutting boards, and stainless or cast-iron pans',
+        'Coffee maker, electric kettle, and mugs',
+        'Full-size refrigerator and freezer with clean shelves',
+        'Dishwasher or dish drying rack with dish soap and fresh sponges',
       ],
     },
   };
@@ -67,12 +67,12 @@ export const ExperiencePage: React.FC = () => {
     <div className="w-full pt-32 pb-32 sm:pb-36 px-6 sm:px-12 lg:px-20 max-w-7xl mx-auto">
       {/* Page Title & Vision */}
       <div className="mb-16 max-w-3xl">
-        <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#A3968E] block mb-2">Hospitality Standards</span>
+        <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#A3968E] block mb-2">Our standards</span>
         <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-[#F5EBE6] font-normal leading-tight">
-          Crafted for quiet living, seamless work, and genuine peace.
+          What we check before you arrive.
         </h1>
         <p className="text-sm sm:text-base text-[#A3968E] mt-4 font-light leading-relaxed">
-          Near Home rejects the lottery of conventional vacation rentals. We curate an uncompromising standard of acoustics, high-speed fiber, and residential hospitality for discerning international travelers.
+          We focus on the things that usually cause headaches in short-term rentals: street noise, weak Wi-Fi, confusing key handoffs, and unexpected power cuts.
         </p>
       </div>
 
@@ -86,16 +86,16 @@ export const ExperiencePage: React.FC = () => {
             <div className="w-12 h-12 rounded-2xl bg-[#28201C] border border-[#F5EBE6]/10 flex items-center justify-center text-[#F5EBE6] mb-6">
               <Volume2 className="w-6 h-6 text-amber-300" />
             </div>
-            <span className="text-[10px] uppercase font-mono tracking-widest text-[#A3968E] block mb-2">Pillar I</span>
-            <h3 className="font-serif text-2xl text-[#F5EBE6] font-normal">Acoustic Isolation</h3>
+            <span className="text-[10px] uppercase font-mono tracking-widest text-[#A3968E] block mb-2">Sound</span>
+            <h3 className="font-serif text-2xl text-[#F5EBE6] font-normal">Acoustic insulation and quiet rooms</h3>
             <p className="text-xs text-[#A3968E] mt-3 leading-relaxed font-light">
-              We understand that true luxury in bustling cities like Lagos, New York, or London is quietness. All residences feature double-glazed fenestration, decoupled ceilings, and strict evening residential policies.
+              We check background noise levels in each apartment. Windows are double-glazed (two layers of glass separated by an air pocket that dampens sound), doors are solid timber with bottom seals, and bedrooms are set away from busy streets.
             </p>
           </div>
           <div className="mt-8 pt-6 border-t border-[#F5EBE6]/10 flex items-center gap-2 text-xs font-mono text-amber-200">
-            <span>STC 50+ Certified</span>
+            <span>Double-glazed windows</span>
             <span>·</span>
-            <span>Sub-38 dB Sleep Baseline</span>
+            <span>Solid-core doors</span>
           </div>
         </div>
 
@@ -105,16 +105,16 @@ export const ExperiencePage: React.FC = () => {
             <div className="w-12 h-12 rounded-2xl bg-[#28201C] border border-[#F5EBE6]/10 flex items-center justify-center text-[#F5EBE6] mb-6">
               <Wifi className="w-6 h-6 text-emerald-400" />
             </div>
-            <span className="text-[10px] uppercase font-mono tracking-widest text-[#A3968E] block mb-2">Pillar II</span>
-            <h3 className="font-serif text-2xl text-[#F5EBE6] font-normal">Enterprise Fiber & Ergonomics</h3>
+            <span className="text-[10px] uppercase font-mono tracking-widest text-[#A3968E] block mb-2">Work</span>
+            <h3 className="font-serif text-2xl text-[#F5EBE6] font-normal">Tested fiber internet and desks</h3>
             <p className="text-xs text-[#A3968E] mt-3 leading-relaxed font-light">
-              Built from the ground up for founders, remote executives, and creators. We verify symmetrical gigabit fiber speeds before check-in and equip every suite with Herman Miller Aeron or Mirra seating.
+              Every home has its own dedicated fiber line, not a shared building router. We test speeds before you check in. Workspaces include a real desk and an adjustable office chair you can sit in all day without back pain.
             </p>
           </div>
           <div className="mt-8 pt-6 border-t border-[#F5EBE6]/10 flex items-center gap-2 text-xs font-mono text-emerald-300">
-            <span>1,000 Mbps Symmetrical</span>
+            <span>High-speed fiber</span>
             <span>·</span>
-            <span>Zero-Jitter Video Calls</span>
+            <span>Ergonomic office seating</span>
           </div>
         </div>
 
@@ -124,16 +124,16 @@ export const ExperiencePage: React.FC = () => {
             <div className="w-12 h-12 rounded-2xl bg-[#28201C] border border-[#F5EBE6]/10 flex items-center justify-center text-[#F5EBE6] mb-6">
               <Key className="w-6 h-6 text-[#F5EBE6]" />
             </div>
-            <span className="text-[10px] uppercase font-mono tracking-widest text-[#A3968E] block mb-2">Pillar III</span>
-            <h3 className="font-serif text-2xl text-[#F5EBE6] font-normal">Frictionless Keyless Arrival</h3>
+            <span className="text-[10px] uppercase font-mono tracking-widest text-[#A3968E] block mb-2">Arrival</span>
+            <h3 className="font-serif text-2xl text-[#F5EBE6] font-normal">Keyless digital door codes</h3>
             <p className="text-xs text-[#A3968E] mt-3 leading-relaxed font-light">
-              No coordinating awkward keys in airport taxis or waiting on building concierges. You receive an encrypted time-sensitive keypad code 24 hours prior to check-in, allowing seamless self-arrival 24/7.
+              We send your 6-digit door code and arrival instructions 24 hours before you arrive. Whether your plane lands in the middle of the afternoon or at 2:00 AM, you can let yourself in without waiting on anyone.
             </p>
           </div>
           <div className="mt-8 pt-6 border-t border-[#F5EBE6]/10 flex items-center gap-2 text-xs font-mono text-[#A3968E]">
-            <span>256-Bit Encrypted Lock</span>
+            <span>Keypad smart lock</span>
             <span>·</span>
-            <span>Self Check-in Any Hour</span>
+            <span>Self check-in anytime after 3:00 PM</span>
           </div>
         </div>
 
@@ -141,44 +141,44 @@ export const ExperiencePage: React.FC = () => {
         <div className="bg-[#1C1613] border border-[#F5EBE6]/10 rounded-3xl p-8 sm:p-10 flex flex-col justify-between">
           <div>
             <div className="w-12 h-12 rounded-2xl bg-[#28201C] border border-[#F5EBE6]/10 flex items-center justify-center text-[#F5EBE6] mb-6">
-              <Sparkles className="w-6 h-6 text-purple-300" />
+              <ShieldCheck className="w-6 h-6 text-purple-300" />
             </div>
-            <span className="text-[10px] uppercase font-mono tracking-widest text-[#A3968E] block mb-2">Pillar IV</span>
-            <h3 className="font-serif text-2xl text-[#F5EBE6] font-normal">Dedicated WhatsApp Concierge</h3>
+            <span className="text-[10px] uppercase font-mono tracking-widest text-[#A3968E] block mb-2">Reliability</span>
+            <h3 className="font-serif text-2xl text-[#F5EBE6] font-normal">Inverters and solar power backup</h3>
             <p className="text-xs text-[#A3968E] mt-3 leading-relaxed font-light">
-              A private, responsive residential concierge at your fingertips. From arranging an airport Mercedes transfer to procuring an in-suite private chef or stocking specialized pantry items.
+              In cities where the local electrical grid cuts out (such as Lagos and Abuja), our buildings run automatic inverters and solar battery banks. Your lights, laptops, and Wi-Fi stay on even when the street power drops.
             </p>
           </div>
           <div className="mt-8 pt-6 border-t border-[#F5EBE6]/10 flex items-center gap-2 text-xs font-mono text-emerald-400">
-            <span>Average 4-Min Response</span>
+            <span>Automatic battery switchover</span>
             <span>·</span>
-            <span>24/7 Active Line</span>
+            <span>Uninterrupted Wi-Fi</span>
           </div>
         </div>
       </div>
 
       {/* ============================================================ */}
-      {/* 50-POINT PHYSICAL AUDIT BREAKDOWN                           */}
+      {/* PHYSICAL VERIFICATION AUDIT BREAKDOWN                        */}
       {/* ============================================================ */}
       <section className="bg-[#1C1613] border border-[#F5EBE6]/15 rounded-3xl p-8 sm:p-12 mb-24">
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#A3968E] block mb-2">Quality Assurance</span>
+          <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#A3968E] block mb-2">In-person checks</span>
           <h2 className="font-serif text-3xl sm:text-4xl text-[#F5EBE6] font-normal">
-            The 50-Point Physical Verification Audit
+            What we inspect before listing a home
           </h2>
           <p className="text-xs text-[#A3968E] mt-3">
-            Every property is audited in-person quarterly by our architectural standards team.
+            Our team visits every apartment in person to test each of these items before welcoming guests.
           </p>
         </div>
 
         {/* Audit Tabs */}
         <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
           {[
-            { id: 'acoustics', label: 'Acoustics & Sound' },
-            { id: 'connectivity', label: 'Fiber & WiFi' },
-            { id: 'sleep', label: 'Sleep & Mattresses' },
-            { id: 'climate', label: 'Climate & Showers' },
-            { id: 'culinary', label: 'Chef Kitchen & Coffee' },
+            { id: 'acoustics', label: 'Sound & quiet' },
+            { id: 'connectivity', label: 'Fiber & Wi-Fi' },
+            { id: 'sleep', label: 'Beds & curtains' },
+            { id: 'climate', label: 'Showers & air conditioning' },
+            { id: 'culinary', label: 'Kitchen & coffee' },
           ].map(tab => (
             <button
               key={tab.id}
@@ -215,49 +215,49 @@ export const ExperiencePage: React.FC = () => {
       </section>
 
       {/* ============================================================ */}
-      {/* CONCIERGE ADD-ON MENU SPREAD                                */}
+      {/* EXTRA IN-STAY SERVICES SPREAD                               */}
       {/* ============================================================ */}
       <section className="mb-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 pb-6 border-b border-[#F5EBE6]/10">
           <div>
-            <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#A3968E] block mb-2">On-Demand Hospitality</span>
+            <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#A3968E] block mb-2">Optional extras</span>
             <h2 className="font-serif text-3xl sm:text-4xl text-[#F5EBE6] font-normal">
-              Bespoke In-Stay Services
+              Services you can add to your stay
             </h2>
           </div>
           <a
-            href={getWhatsAppConciergeUrl('Hello Near Home concierge, I would like to inquire about customized in-stay services.')}
+            href={getWhatsAppConciergeUrl('Hello Near Home team, I would like to ask about extra services for an upcoming stay.')}
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1C1613] border border-[#F5EBE6]/20 text-xs text-[#F5EBE6] hover:bg-[#F5EBE6] hover:text-[#120E0C] transition-all"
           >
             <MessageSquare className="w-4 h-4 text-emerald-400" />
-            <span>Consult Concierge</span>
+            <span>Message our team</span>
           </a>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="p-6 rounded-3xl bg-[#1C1613] border border-[#F5EBE6]/10">
             <Car className="w-6 h-6 text-[#F5EBE6] mb-4" />
-            <h4 className="font-serif text-lg text-[#F5EBE6]">Private Airport Chauffeur</h4>
+            <h4 className="font-serif text-lg text-[#F5EBE6]">Airport pickup ($65)</h4>
             <p className="text-xs text-[#A3968E] mt-2 leading-relaxed">
-              Executive Mercedes E-Class or V-Class transfer directly from tarmac baggage claim to residence doors.
+              A driver meets you outside arrivals with your name on a card and drives you directly to the apartment.
             </p>
           </div>
 
           <div className="p-6 rounded-3xl bg-[#1C1613] border border-[#F5EBE6]/10">
             <Utensils className="w-6 h-6 text-[#F5EBE6] mb-4" />
-            <h4 className="font-serif text-lg text-[#F5EBE6]">Private Chef Residency</h4>
+            <h4 className="font-serif text-lg text-[#F5EBE6]">Cooked dinner on arrival ($180)</h4>
             <p className="text-xs text-[#A3968E] mt-2 leading-relaxed">
-              Private culinary masters preparing bespoke dinners, regional tasting menus, and customized dietary meal plans.
+              A local cook prepares a fresh, hot dinner in your kitchen on your first evening so you don't have to order takeout after traveling.
             </p>
           </div>
 
           <div className="p-6 rounded-3xl bg-[#1C1613] border border-[#F5EBE6]/10">
             <Coffee className="w-6 h-6 text-[#F5EBE6] mb-4" />
-            <h4 className="font-serif text-lg text-[#F5EBE6]">Artisan Pantry Provisioning</h4>
+            <h4 className="font-serif text-lg text-[#F5EBE6]">Groceries on arrival ($55)</h4>
             <p className="text-xs text-[#A3968E] mt-2 leading-relaxed">
-              Warm sourdough, organic milk, single-origin roasts, and chilled biodynamic wines waiting inside upon arrival.
+              Fresh bread, milk, eggs, fruit, and ground coffee stocked in your kitchen before you unlock the door.
             </p>
           </div>
         </div>
@@ -266,14 +266,14 @@ export const ExperiencePage: React.FC = () => {
       {/* CTA Bottom Banner */}
       <div className="p-8 sm:p-12 rounded-3xl bg-[#1C1613] border border-[#F5EBE6]/15 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
         <div>
-          <h3 className="font-serif text-2xl sm:text-3xl text-[#F5EBE6]">Ready to experience Near Home?</h3>
-          <p className="text-xs text-[#A3968E] mt-1">Explore our residences catalog or reserve directly with zero hidden markups.</p>
+          <h3 className="font-serif text-2xl sm:text-3xl text-[#F5EBE6]">Ready to find a stay?</h3>
+          <p className="text-xs text-[#A3968E] mt-1">Browse our homes in ten cities with transparent nightly rates and flexible cancellation.</p>
         </div>
         <button
           onClick={() => navigate('/residences')}
           className="px-8 py-3.5 rounded-full bg-[#F5EBE6] hover:bg-white text-[#120E0C] text-xs font-semibold uppercase tracking-wider transition-all shadow-md active:scale-95"
         >
-          View Available Residences
+          Browse homes
         </button>
       </div>
     </div>

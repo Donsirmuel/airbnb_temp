@@ -60,7 +60,7 @@ export const PhotoLightbox: React.FC<PhotoLightboxProps> = ({
         {/* Top Bar */}
         <div className="w-full flex items-center justify-between z-10 pb-4 border-b border-[#F5EBE6]/10">
           <div>
-            <span className="text-[10px] uppercase tracking-widest text-[#A3968E] font-mono block">Architectural Gallery</span>
+            <span className="text-[10px] uppercase tracking-widest text-[#A3968E] font-mono block">Photos</span>
             <h4 className="font-serif text-lg sm:text-xl text-[#F5EBE6]">{title}</h4>
           </div>
           <div className="flex items-center gap-4">

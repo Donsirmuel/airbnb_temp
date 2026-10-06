@@ -138,7 +138,7 @@ export const PropertyDetailsPage: React.FC<PropertyDetailsPageProps> = ({ slug: 
             className="px-4 py-2.5 rounded-full bg-[#1C1613] border border-[#F5EBE6]/15 hover:border-[#F5EBE6]/30 text-xs text-[#F5EBE6] flex items-center gap-2 transition-colors"
           >
             <MessageSquare className="w-3.5 h-3.5 text-emerald-400" />
-            <span>Ask Concierge</span>
+            <span>Message our desk</span>
           </a>
         </div>
       </div>
@@ -161,7 +161,7 @@ export const PropertyDetailsPage: React.FC<PropertyDetailsPageProps> = ({ slug: 
           />
           <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors pointer-events-none"></div>
           <div className="absolute bottom-4 left-4 px-3 py-1 rounded-full bg-[#120E0C]/80 backdrop-blur-md text-[11px] font-mono text-[#F5EBE6] pointer-events-none">
-            Primary Living & Natural Light
+            Main living space
           </div>
         </div>
 
@@ -187,8 +187,8 @@ export const PropertyDetailsPage: React.FC<PropertyDetailsPageProps> = ({ slug: 
                 {isLast && (
                   <div className="absolute inset-0 bg-black/60 backdrop-blur-sm flex flex-col items-center justify-center text-center p-4 pointer-events-none">
                     <Maximize2 className="w-5 h-5 text-[#F5EBE6] mb-1" />
-                    <span className="text-xs font-serif text-[#F5EBE6] font-medium">View All Photos</span>
-                    <span className="text-[10px] font-mono text-[#A3968E] mt-0.5">({gallery.length} Images)</span>
+                    <span className="text-xs font-serif text-[#F5EBE6] font-medium">All photos</span>
+                    <span className="text-[10px] font-mono text-[#A3968E] mt-0.5">({gallery.length} photos)</span>
                   </div>
                 )}
               </div>
@@ -202,21 +202,21 @@ export const PropertyDetailsPage: React.FC<PropertyDetailsPageProps> = ({ slug: 
       {/* ============================================================ */}
       <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 p-4 sm:p-6 rounded-3xl bg-[#1C1613] border border-[#F5EBE6]/15 mb-16 text-center">
         <div className="p-2">
-          <span className="text-[10px] uppercase font-mono text-[#A3968E] block mb-1">Scale</span>
+          <span className="text-[10px] uppercase font-mono text-[#A3968E] block mb-1">Size</span>
           <span className="text-sm sm:text-base font-serif text-[#F5EBE6] font-medium">
             {property.scaleSqFt.toLocaleString()} sq ft
           </span>
         </div>
 
         <div className="p-2 border-l border-[#F5EBE6]/10">
-          <span className="text-[10px] uppercase font-mono text-[#A3968E] block mb-1">Acoustic Shield</span>
+          <span className="text-[10px] uppercase font-mono text-[#A3968E] block mb-1">Soundproofing</span>
           <span className="text-xs sm:text-sm font-mono text-[#F5EBE6] font-medium">
             {property.acousticsRating.split(' ')[0]} {property.acousticsRating.split(' ')[1]}
           </span>
         </div>
 
         <div className="p-2 border-l border-[#F5EBE6]/10">
-          <span className="text-[10px] uppercase font-mono text-[#A3968E] block mb-1">Verified WiFi</span>
+          <span className="text-[10px] uppercase font-mono text-[#A3968E] block mb-1">Wi-Fi speed</span>
           <span className="text-xs sm:text-sm font-mono text-emerald-400 font-semibold flex items-center justify-center gap-1">
             <Wifi className="w-3.5 h-3.5" />
             <span>{property.fiberSpeedMbps} Mbps</span>
@@ -224,14 +224,14 @@ export const PropertyDetailsPage: React.FC<PropertyDetailsPageProps> = ({ slug: 
         </div>
 
         <div className="p-2 border-l border-[#F5EBE6]/10">
-          <span className="text-[10px] uppercase font-mono text-[#A3968E] block mb-1">Check-in / Out</span>
+          <span className="text-[10px] uppercase font-mono text-[#A3968E] block mb-1">Check-in / out</span>
           <span className="text-xs sm:text-sm font-mono text-[#F5EBE6] font-medium">
             {property.checkInTime} / {property.checkOutTime}
           </span>
         </div>
 
         <div className="col-span-2 sm:col-span-1 p-2 sm:border-l border-[#F5EBE6]/10">
-          <span className="text-[10px] uppercase font-mono text-[#A3968E] block mb-1">Bed Configuration</span>
+          <span className="text-[10px] uppercase font-mono text-[#A3968E] block mb-1">Beds</span>
           <span className="text-xs sm:text-sm font-serif text-[#F5EBE6] font-medium truncate block">
             {property.bedConfig}
           </span>
@@ -248,9 +248,9 @@ export const PropertyDetailsPage: React.FC<PropertyDetailsPageProps> = ({ slug: 
           
           {/* Architectural Story */}
           <div>
-            <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#A3968E] block mb-2">Narrative</span>
+            <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#A3968E] block mb-2">The space</span>
             <h2 className="font-serif text-2xl sm:text-3xl text-[#F5EBE6] font-normal mb-4">
-              Architectural Story & Design Philosophy
+              About this home
             </h2>
             <p className="text-sm text-[#F5EBE6]/90 leading-relaxed font-light mb-4">
               {property.desc}
@@ -262,9 +262,9 @@ export const PropertyDetailsPage: React.FC<PropertyDetailsPageProps> = ({ slug: 
 
           {/* Grouped Amenities Matrix */}
           <div className="pt-8 border-t border-[#F5EBE6]/10">
-            <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#A3968E] block mb-2">Specifications</span>
+            <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#A3968E] block mb-2">Included</span>
             <h2 className="font-serif text-2xl sm:text-3xl text-[#F5EBE6] font-normal mb-6">
-              Residence Amenities Matrix
+              What is included
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -288,9 +288,9 @@ export const PropertyDetailsPage: React.FC<PropertyDetailsPageProps> = ({ slug: 
 
           {/* House Rules & Policies */}
           <div className="pt-8 border-t border-[#F5EBE6]/10">
-            <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#A3968E] block mb-2">House Etiquette</span>
+            <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#A3968E] block mb-2">Rules</span>
             <h2 className="font-serif text-2xl sm:text-3xl text-[#F5EBE6] font-normal mb-4">
-              House Rules & Quiet Hours
+              House rules
             </h2>
             <div className="p-6 rounded-2xl bg-[#1C1613] border border-[#F5EBE6]/10 space-y-3">
               {property.houseRules.map((rule, idx) => (
@@ -304,9 +304,9 @@ export const PropertyDetailsPage: React.FC<PropertyDetailsPageProps> = ({ slug: 
 
           {/* Neighborhood & Location Guide */}
           <div className="pt-8 border-t border-[#F5EBE6]/10">
-            <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#A3968E] block mb-2">Surroundings</span>
+            <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#A3968E] block mb-2">Neighborhood</span>
             <h2 className="font-serif text-2xl sm:text-3xl text-[#F5EBE6] font-normal mb-2">
-              Neighborhood Guide: {property.neighborhood.area}
+              The neighborhood: {property.neighborhood.area}
             </h2>
             <p className="text-xs text-[#A3968E] mb-6">
               {property.neighborhood.tagline}
@@ -351,7 +351,7 @@ export const PropertyDetailsPage: React.FC<PropertyDetailsPageProps> = ({ slug: 
             {/* Price Header */}
             <div className="flex items-baseline justify-between pb-6 border-b border-[#F5EBE6]/10">
               <div>
-                <span className="text-[10px] uppercase tracking-widest text-[#A3968E] font-mono block">Direct Rate</span>
+                <span className="text-[10px] uppercase tracking-widest text-[#A3968E] font-mono block">Nightly rate</span>
                 <div className="flex items-baseline gap-1.5 mt-0.5">
                   <span className="font-serif text-3xl sm:text-4xl text-[#F5EBE6] font-normal">
                     {formatPrice(property.pricePerNightUSD)}
@@ -361,7 +361,7 @@ export const PropertyDetailsPage: React.FC<PropertyDetailsPageProps> = ({ slug: 
               </div>
               <div className="text-right">
                 <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-mono">
-                  ● Direct Best Rate
+                  ● Direct booking rate
                 </span>
               </div>
             </div>
@@ -374,7 +374,7 @@ export const PropertyDetailsPage: React.FC<PropertyDetailsPageProps> = ({ slug: 
                 className="p-3.5 rounded-2xl bg-[#28201C] border border-[#F5EBE6]/10 hover:border-[#F5EBE6]/30 transition-colors cursor-pointer"
               >
                 <div className="flex items-center justify-between text-[10px] uppercase tracking-widest text-[#A3968E] font-mono">
-                  <span>Selected Dates</span>
+                  <span>Selected dates</span>
                   <span>{pricing.nights} Nights</span>
                 </div>
                 <div className="flex items-center justify-between mt-1 text-xs text-[#F5EBE6] font-medium">
@@ -386,7 +386,7 @@ export const PropertyDetailsPage: React.FC<PropertyDetailsPageProps> = ({ slug: 
               {/* Guests selector */}
               <div className="p-3.5 rounded-2xl bg-[#28201C] border border-[#F5EBE6]/10 hover:border-[#F5EBE6]/30 transition-colors">
                 <div className="flex items-center justify-between text-[10px] uppercase tracking-widest text-[#A3968E] font-mono mb-1">
-                  <span>Number of Guests</span>
+                  <span>Number of guests</span>
                   <span>Max {property.maxGuests}</span>
                 </div>
                 <div className="flex items-center justify-between">
@@ -397,7 +397,7 @@ export const PropertyDetailsPage: React.FC<PropertyDetailsPageProps> = ({ slug: 
                   >
                     {Array.from({ length: property.maxGuests }, (_, i) => i + 1).map(n => (
                       <option key={n} value={n} className="bg-[#1C1613]">
-                        {n} {n === 1 ? 'Guest' : 'Guests'} (Full Private Residence)
+                        {n} {n === 1 ? 'Guest' : 'Guests'} (Entire private home)
                       </option>
                     ))}
                   </select>
@@ -416,22 +416,22 @@ export const PropertyDetailsPage: React.FC<PropertyDetailsPageProps> = ({ slug: 
               </div>
 
               <div className="flex items-center justify-between text-[#A3968E]">
-                <span>Deep Architectural Cleaning Fee</span>
+                <span>Cleaning fee</span>
                 <span className="font-mono text-[#F5EBE6]">{formatPrice(pricing.cleaningFee)}</span>
               </div>
 
               <div className="flex items-center justify-between text-[#A3968E]">
-                <span>Concierge & Verification Service (8%)</span>
+                <span>Service and support fee (8%)</span>
                 <span className="font-mono text-[#F5EBE6]">{formatPrice(pricing.serviceFee)}</span>
               </div>
 
               <div className="flex items-center justify-between text-[#A3968E]">
-                <span>Occupancy Taxes & Insured Bond</span>
+                <span>Local taxes and fees</span>
                 <span className="font-mono text-[#F5EBE6]">{formatPrice(pricing.taxes)}</span>
               </div>
 
               <div className="pt-3 border-t border-[#F5EBE6]/10 flex items-baseline justify-between text-sm">
-                <span className="font-serif text-[#F5EBE6] font-medium">Estimated Total</span>
+                <span className="font-serif text-[#F5EBE6] font-medium">Total</span>
                 <span className="font-serif text-xl sm:text-2xl text-[#F5EBE6] font-semibold font-mono">
                   {formatPrice(pricing.grandTotal)}
                 </span>
@@ -444,7 +444,7 @@ export const PropertyDetailsPage: React.FC<PropertyDetailsPageProps> = ({ slug: 
               onClick={handleProceedToCheckout}
               className="w-full mt-6 py-3.5 rounded-full bg-[#F5EBE6] hover:bg-white text-[#120E0C] text-xs font-semibold uppercase tracking-wider transition-all shadow-xl active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
             >
-              <span>Proceed to Checkout</span>
+              <span>Reserve this stay</span>
               <ChevronRight className="w-4 h-4" />
             </button>
 
@@ -456,11 +456,11 @@ export const PropertyDetailsPage: React.FC<PropertyDetailsPageProps> = ({ slug: 
             <div className="mt-6 pt-5 border-t border-[#F5EBE6]/10 grid grid-cols-2 gap-2 text-[10px] font-mono text-[#A3968E]">
               <div className="flex items-center gap-1.5">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                <span>50-Point Audit</span>
+                <span>Inspected in person</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <Wifi className="w-3.5 h-3.5 text-emerald-400" />
-                <span>{property.fiberSpeedMbps}Mbps Fiber</span>
+                <span>{property.fiberSpeedMbps} Mbps fiber</span>
               </div>
             </div>
 

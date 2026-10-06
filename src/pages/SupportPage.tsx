@@ -19,28 +19,28 @@ export const SupportPage: React.FC = () => {
 
   const faqs = [
     {
-      q: 'How does keyless arrival work if my flight lands late at night?',
-      a: 'All Near Home residences operate with military-grade 256-bit encrypted keyless digital locks. Exactly 24 hours prior to your scheduled check-in time, our system generates and emails your unique, time-activated PIN code. It remains active throughout your stay and expires automatically upon checkout. You can arrive at 3:00 PM or 3:00 AM without coordinating with anyone.',
+      q: 'What if my flight arrives late at night?',
+      a: 'All homes have digital keypad locks. We email and text your 6-digit door code 24 hours before your check-in time. The code works from 3:00 PM on your arrival day, so you can walk in at midnight or 3:00 AM without having to meet anyone for keys.',
     },
     {
-      q: 'What is the Near Home 1Gbps Fiber Guarantee?',
-      a: 'Before any guest crosses the threshold, our field team performs a physical speed and latency test. We guarantee symmetrical speeds of at least 1,000 Mbps with sub-8ms jitter. Furthermore, all flagship residences in emerging infrastructure hubs (such as Lagos and Abuja) feature uninterrupted automatic inverter/solar power systems with dual-redundant fiber feeds.',
+      q: 'How fast is the internet, and what happens if the power goes out?',
+      a: 'Every apartment has its own dedicated fiber line. We test upload and download speeds before you check in so you know video calls and large file transfers will work without freezing. In cities with frequent electrical grid outages like Lagos and Abuja, the Wi-Fi router and essential outlets run on an automatic inverter and solar battery backup.',
     },
     {
-      q: 'What is your cancellation and date modification policy?',
-      a: 'We understand schedules change. Direct reservations can be modified or fully refunded up to 48 hours before scheduled check-in. For extended stays (14+ nights), cancellations require 7 days advance notice for a 100% refund.',
+      q: 'What is your cancellation policy?',
+      a: 'You can cancel for a full refund up to 48 hours before check-in. For bookings of 14 nights or longer, we ask for 7 days notice so we have time to make the calendar available to other guests.',
     },
     {
-      q: 'Can I book extended residencies (30+ days) or corporate stays?',
-      a: 'Yes. We offer preferred corporate tariffs and tailored monthly residency agreements. These include weekly linen turnover, VAT billing receipts for corporate tax reconciliation, and flexible extension options. Reach out via the Corporate Inquiry tab below.',
+      q: 'Can I book for a month or more?',
+      a: 'Yes. We offer discounted monthly rates for stays of 30 days or longer. We include weekly cleaning, fresh towels and sheets, and can issue VAT receipts if your company is paying.',
     },
     {
-      q: 'Are pets permitted inside the residences?',
-      a: 'Select residences in London, Brooklyn, and Cape Town are pet-friendly for well-trained companions with advance notice. An additional pet sanitization fee of $50 per stay applies to ensure subsequent allergy-sensitive guests experience pristine air quality.',
+      q: 'Are pets allowed?',
+      a: 'Well-behaved dogs are welcome in select homes in London, New York, and Cape Town. We ask for a $50 extra cleaning fee so the apartment can be thoroughly deep-cleaned before the next guest.',
     },
     {
-      q: 'What happens in the event of an in-stay maintenance need?',
-      a: 'Our residential duty manager is stationed within a 20-minute perimeter of each residence cluster. If an appliance, water filter, or HVAC unit requires attention, an authorized technician is dispatched with an average resolution time under 45 minutes.',
+      q: 'What happens if something breaks or stops working during my stay?',
+      a: 'Send a quick message on WhatsApp or call our local line. We have on-call technicians in each city who come by promptly to fix air conditioners, plumbing, or internet issues.',
     },
   ];
 
@@ -59,12 +59,12 @@ export const SupportPage: React.FC = () => {
     <div className="w-full pt-32 pb-32 sm:pb-36 px-6 sm:px-12 lg:px-20 max-w-7xl mx-auto">
       {/* Page Title */}
       <div className="mb-14 max-w-2xl">
-        <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#A3968E] block mb-2">Concierge & Assistance</span>
+        <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#A3968E] block mb-2">Help & contact</span>
         <h1 className="font-serif text-3xl sm:text-5xl text-[#F5EBE6] font-normal">
-          Client Support & Inquiries
+          Questions and support
         </h1>
         <p className="text-sm text-[#A3968E] mt-3 font-light leading-relaxed">
-          Direct human communication without chatbot queues. Reach our residential liaison team 24 hours a day, 7 days a week.
+          Talk directly to a real person on our team. No chatbots or automated phone menus.
         </p>
       </div>
 
@@ -79,15 +79,15 @@ export const SupportPage: React.FC = () => {
             <div className="w-10 h-10 rounded-2xl bg-[#28201C] border border-[#F5EBE6]/10 flex items-center justify-center mb-4">
               <MessageSquare className="w-5 h-5 text-emerald-400" />
             </div>
-            <span className="text-[10px] uppercase font-mono tracking-widest text-[#A3968E] block mb-1">Instant Messaging</span>
-            <h4 className="font-serif text-lg text-[#F5EBE6]">WhatsApp Concierge</h4>
+            <span className="text-[10px] uppercase font-mono tracking-widest text-[#A3968E] block mb-1">WhatsApp</span>
+            <h4 className="font-serif text-lg text-[#F5EBE6]">Direct WhatsApp desk</h4>
             <p className="text-xs text-[#A3968E] mt-2 leading-relaxed">
-              Fastest response channel for check-in requests, transfers, or dining reservations.
+              The fastest way to ask about check-in, directions, or booking questions.
             </p>
           </div>
           <div className="mt-6 pt-4 border-t border-[#F5EBE6]/10">
             <a
-              href={getWhatsAppConciergeUrl('Hello Concierge, I would like direct support regarding Near Home.')}
+              href={getWhatsAppConciergeUrl('Hello Near Home team, I have a question about a stay.')}
               target="_blank"
               rel="noreferrer"
               className="text-xs font-semibold text-emerald-400 hover:underline flex items-center gap-1.5"
@@ -104,10 +104,10 @@ export const SupportPage: React.FC = () => {
             <div className="w-10 h-10 rounded-2xl bg-[#28201C] border border-[#F5EBE6]/10 flex items-center justify-center mb-4">
               <Mail className="w-5 h-5 text-[#F5EBE6]" />
             </div>
-            <span className="text-[10px] uppercase font-mono tracking-widest text-[#A3968E] block mb-1">Direct Correspondence</span>
-            <h4 className="font-serif text-lg text-[#F5EBE6]">Concierge Email</h4>
+            <span className="text-[10px] uppercase font-mono tracking-widest text-[#A3968E] block mb-1">Email</span>
+            <h4 className="font-serif text-lg text-[#F5EBE6]">Email our team</h4>
             <p className="text-xs text-[#A3968E] mt-2 leading-relaxed">
-              Invoices, receipts, special leases, or custom guest requirements.
+              For corporate invoices, tax receipts, or detailed inquiries.
             </p>
           </div>
           <div className="mt-6 pt-4 border-t border-[#F5EBE6]/10">
@@ -126,10 +126,10 @@ export const SupportPage: React.FC = () => {
             <div className="w-10 h-10 rounded-2xl bg-[#28201C] border border-[#F5EBE6]/10 flex items-center justify-center mb-4">
               <Phone className="w-5 h-5 text-amber-300" />
             </div>
-            <span className="text-[10px] uppercase font-mono tracking-widest text-[#A3968E] block mb-1">In-Stay Duty Host</span>
-            <h4 className="font-serif text-lg text-[#F5EBE6]">24/7 Emergency Line</h4>
+            <span className="text-[10px] uppercase font-mono tracking-widest text-[#A3968E] block mb-1">Phone</span>
+            <h4 className="font-serif text-lg text-[#F5EBE6]">In-stay local line</h4>
             <p className="text-xs text-[#A3968E] mt-2 leading-relaxed">
-              Guaranteed 15-minute physical response for in-house emergency support.
+              Call if you are already in the home and need urgent maintenance assistance.
             </p>
           </div>
           <div className="mt-6 pt-4 border-t border-[#F5EBE6]/10">
@@ -143,14 +143,14 @@ export const SupportPage: React.FC = () => {
             <div className="w-10 h-10 rounded-2xl bg-[#28201C] border border-[#F5EBE6]/10 flex items-center justify-center mb-4">
               <Building className="w-5 h-5 text-purple-300" />
             </div>
-            <span className="text-[10px] uppercase font-mono tracking-widest text-[#A3968E] block mb-1">Corporate Stays</span>
-            <h4 className="font-serif text-lg text-[#F5EBE6]">Long-Stay Tariffs</h4>
+            <span className="text-[10px] uppercase font-mono tracking-widest text-[#A3968E] block mb-1">Extended stays</span>
+            <h4 className="font-serif text-lg text-[#F5EBE6]">Monthly rates</h4>
             <p className="text-xs text-[#A3968E] mt-2 leading-relaxed">
-              Tailored agreements and tax-deductible invoicing for corporate relocation.
+              Discounted pricing and company VAT invoicing for stays of 30 days or longer.
             </p>
           </div>
           <div className="mt-6 pt-4 border-t border-[#F5EBE6]/10">
-            <span className="text-xs font-mono text-purple-300 font-medium">30+ Days · -20% Tariff</span>
+            <span className="text-xs font-mono text-purple-300 font-medium">30+ Days · 20% discount</span>
           </div>
         </div>
 
@@ -163,39 +163,39 @@ export const SupportPage: React.FC = () => {
         
         {/* Left 6-Col: Direct Inquiry Form */}
         <div className="lg:col-span-6 p-8 rounded-3xl bg-[#1C1613] border border-[#F5EBE6]/15">
-          <span className="text-[10px] uppercase tracking-widest text-[#A3968E] font-mono block mb-2">Message Us</span>
-          <h3 className="font-serif text-2xl text-[#F5EBE6] font-normal mb-6">Send an Inquiry</h3>
+          <span className="text-[10px] uppercase tracking-widest text-[#A3968E] font-mono block mb-2">Message</span>
+          <h3 className="font-serif text-2xl text-[#F5EBE6] font-normal mb-6">Send us a message</h3>
 
           {inquirySubmitted ? (
             <div className="p-6 rounded-2xl bg-[#28201C] border border-emerald-500/30 text-center animate-fadeIn">
               <CheckCircle2 className="w-10 h-10 text-emerald-400 mx-auto mb-3" />
-              <h4 className="font-serif text-xl text-[#F5EBE6]">Inquiry Received</h4>
+              <h4 className="font-serif text-xl text-[#F5EBE6]">Message received</h4>
               <p className="text-xs text-[#A3968E] mt-2">
-                Thank you for reaching out. A client liaison will respond to your correspondence within 15 minutes.
+                Thank you for reaching out. A member of our team will get back to you shortly.
               </p>
             </div>
           ) : (
             <form onSubmit={handleInquirySubmit} className="space-y-4">
               <div>
                 <label className="text-[10px] uppercase font-mono tracking-widest text-[#A3968E] block mb-1">
-                  Inquiry Topic
+                  What is this regarding?
                 </label>
                 <select
                   value={inquiryForm.category}
                   onChange={e => setInquiryForm({ ...inquiryForm, category: e.target.value })}
                   className="w-full bg-[#28201C] border border-[#F5EBE6]/10 rounded-2xl py-2.5 px-3.5 text-xs text-[#F5EBE6] focus:outline-none focus:border-[#F5EBE6]/30 cursor-pointer"
                 >
-                  <option value="booking" className="bg-[#1C1613]">Reservation & Dates Question</option>
-                  <option value="extended" className="bg-[#1C1613]">Extended Stay / Corporate Residency (30+ Nights)</option>
-                  <option value="concierge" className="bg-[#1C1613]">Custom Concierge / Chef / Chauffeur Service</option>
-                  <option value="partner" className="bg-[#1C1613]">Property Partnership / Architectural Auditing</option>
+                  <option value="booking" className="bg-[#1C1613]">Questions about a home or dates</option>
+                  <option value="extended" className="bg-[#1C1613]">Extended stay (30+ nights)</option>
+                  <option value="concierge" className="bg-[#1C1613]">Airport pickup or meals</option>
+                  <option value="partner" className="bg-[#1C1613]">Listing a property with Near Home</option>
                 </select>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="text-[10px] uppercase font-mono tracking-widest text-[#A3968E] block mb-1">
-                    Your Name *
+                    Your name *
                   </label>
                   <input
                     type="text"
@@ -209,7 +209,7 @@ export const SupportPage: React.FC = () => {
 
                 <div>
                   <label className="text-[10px] uppercase font-mono tracking-widest text-[#A3968E] block mb-1">
-                    Email Address *
+                    Email address *
                   </label>
                   <input
                     type="email"
@@ -224,14 +224,14 @@ export const SupportPage: React.FC = () => {
 
               <div>
                 <label className="text-[10px] uppercase font-mono tracking-widest text-[#A3968E] block mb-1">
-                  Message Details *
+                  Your message *
                 </label>
                 <textarea
                   rows={4}
                   required
                   value={inquiryForm.message}
                   onChange={e => setInquiryForm({ ...inquiryForm, message: e.target.value })}
-                  placeholder="Provide your travel dates, residence of interest, or specific questions..."
+                  placeholder="Tell us what dates or home you are interested in, or what you need..."
                   className="w-full bg-[#28201C] border border-[#F5EBE6]/10 rounded-2xl p-3.5 text-xs text-[#F5EBE6] focus:outline-none focus:border-[#F5EBE6]/30"
                 />
               </div>
@@ -241,7 +241,7 @@ export const SupportPage: React.FC = () => {
                 className="w-full py-3.5 rounded-full bg-[#F5EBE6] hover:bg-white text-[#120E0C] text-xs font-semibold uppercase tracking-wider transition-all shadow-md active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
               >
                 <Send className="w-3.5 h-3.5" />
-                <span>Submit Inquiry</span>
+                <span>Send message</span>
               </button>
             </form>
           )}
@@ -250,8 +250,8 @@ export const SupportPage: React.FC = () => {
         {/* Right 6-Col: Interactive FAQ Accordion */}
         <div className="lg:col-span-6 flex flex-col gap-y-4">
           <div className="mb-2">
-            <span className="text-[10px] uppercase tracking-widest text-[#A3968E] font-mono block mb-1">Clarifications</span>
-            <h3 className="font-serif text-2xl sm:text-3xl text-[#F5EBE6] font-normal">Frequently Answered</h3>
+            <span className="text-[10px] uppercase tracking-widest text-[#A3968E] font-mono block mb-1">Common questions</span>
+            <h3 className="font-serif text-2xl sm:text-3xl text-[#F5EBE6] font-normal">Frequently asked questions</h3>
           </div>
 
           {faqs.map((faq, idx) => {

@@ -157,23 +157,23 @@ export const ResidencesPage: React.FC = () => {
   };
 
   const sortLabels: Record<SortOption, string> = {
-    featured: 'Featured Curation',
-    'price-asc': 'Price: Low to High',
-    'price-desc': 'Price: High to Low',
-    availability: 'Availability (Immediate)',
-    'size-desc': 'Residence Size (Sq Ft)',
+    featured: 'Featured',
+    'price-asc': 'Price: low to high',
+    'price-desc': 'Price: high to low',
+    availability: 'Immediate availability',
+    'size-desc': 'Size: largest first',
   };
 
   return (
     <div className="w-full pt-32 pb-28 sm:pb-36 px-6 sm:px-12 lg:px-20 max-w-7xl mx-auto">
       {/* Page Title & Mission */}
       <div className="mb-12">
-        <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#A3968E] block mb-2">Inventory</span>
+        <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#A3968E] block mb-2">Homes</span>
         <h1 className="font-serif text-3xl sm:text-5xl text-[#F5EBE6] font-normal">
-          The Residences Catalog
+          All residences
         </h1>
         <p className="text-sm text-[#A3968E] mt-3 max-w-2xl font-light leading-relaxed">
-          Ten architectural sanctuaries across Africa, Europe, the Americas, and Asia-Pacific. Each residence is privately leased in its entirety with acoustic STC certification and verified 1Gbps connectivity.
+          Furnished homes across ten cities, each set up with tested fiber internet, dedicated workspaces, and quiet bedrooms.
         </p>
       </div>
 
@@ -222,7 +222,7 @@ export const ResidencesPage: React.FC = () => {
                         : 'bg-[#28201C] text-[#A3968E] hover:text-[#F5EBE6] border border-[#F5EBE6]/10'
                     }`}
                   >
-                    {city === 'all' ? 'All Global' : city}
+                    {city === 'all' ? 'All cities' : city}
                   </button>
                 );
               })}
@@ -279,7 +279,7 @@ export const ResidencesPage: React.FC = () => {
               }`}
             >
               <Wifi className="w-3 h-3" />
-              <span>1Gbps Fiber Only</span>
+              <span>Fast fiber (1 Gbps)</span>
             </button>
 
             <button
@@ -290,7 +290,7 @@ export const ResidencesPage: React.FC = () => {
                   : 'bg-[#28201C] text-[#A3968E] border border-[#F5EBE6]/5 hover:text-[#F5EBE6]'
               }`}
             >
-              <span>Workstation</span>
+              <span>Desk & chair</span>
             </button>
 
             <button
@@ -301,7 +301,7 @@ export const ResidencesPage: React.FC = () => {
                   : 'bg-[#28201C] text-[#A3968E] border border-[#F5EBE6]/5 hover:text-[#F5EBE6]'
               }`}
             >
-              <span>Terrace / Balcony</span>
+              <span>Balcony / terrace</span>
             </button>
 
             <button
@@ -312,7 +312,7 @@ export const ResidencesPage: React.FC = () => {
                   : 'bg-[#28201C] text-[#A3968E] border border-[#F5EBE6]/5 hover:text-[#F5EBE6]'
               }`}
             >
-              <span>Pet Friendly</span>
+              <span>Pet friendly</span>
             </button>
           </div>
         </div>
@@ -325,13 +325,13 @@ export const ResidencesPage: React.FC = () => {
           <span className="font-mono text-[#F5EBE6] font-semibold">
             {sortedProperties.length}
           </span>
-          <span>{sortedProperties.length === 1 ? 'residence available' : 'residences available'} for your criteria</span>
+          <span>{sortedProperties.length === 1 ? 'home found' : 'homes found'}</span>
           {sortedProperties.length < PROPERTIES.length && (
             <button
               onClick={resetFilters}
               className="ml-2 underline text-[#F5EBE6] hover:text-white cursor-pointer"
             >
-              Reset All
+              Clear filters
             </button>
           )}
         </div>
@@ -339,7 +339,7 @@ export const ResidencesPage: React.FC = () => {
         {/* Sorting Dropdown */}
         <div className="relative">
           <div className="flex items-center gap-2">
-            <span className="text-[10px] uppercase font-mono tracking-widest text-[#A3968E]">Sort By:</span>
+            <span className="text-[10px] uppercase font-mono tracking-widest text-[#A3968E]">Sort:</span>
             <button
               type="button"
               onClick={() => setSortDropdownOpen(prev => !prev)}
@@ -361,8 +361,8 @@ export const ResidencesPage: React.FC = () => {
                   onClick={() => {
                     setSortBy(key);
                     showToast({
-                      title: 'Catalog Sorted',
-                      message: `Residences sorted by ${sortLabels[key]}.`,
+                      title: 'Sorting updated',
+                      message: `Sorted by ${sortLabels[key]}.`,
                       type: 'info',
                     });
                   }}
@@ -385,15 +385,15 @@ export const ResidencesPage: React.FC = () => {
       {sortedProperties.length === 0 && (
         <div className="bg-[#1C1613] border border-[#F5EBE6]/10 rounded-3xl p-12 text-center my-12">
           <SlidersHorizontal className="w-8 h-8 text-[#A3968E] mx-auto mb-3" />
-          <h3 className="font-serif text-2xl text-[#F5EBE6]">No residences matched your criteria</h3>
+          <h3 className="font-serif text-2xl text-[#F5EBE6]">No homes match your filters</h3>
           <p className="text-xs text-[#A3968E] mt-2 max-w-md mx-auto">
-            Try broadening your budget slider, selecting 'All Global', or resetting the amenity toggles.
+            Try raising the maximum nightly rate slider, selecting 'All cities', or turning off some amenity filters.
           </p>
           <button
             onClick={resetFilters}
             className="mt-6 px-6 py-2.5 rounded-full bg-[#F5EBE6] text-[#120E0C] text-xs font-semibold hover:bg-white transition-all cursor-pointer"
           >
-            Reset Filters
+            Clear filters
           </button>
         </div>
       )}
@@ -520,7 +520,7 @@ export const ResidencesPage: React.FC = () => {
                   </div>
 
                   <span className="text-[#F5EBE6] font-medium flex items-center gap-1 group-hover:translate-x-1.5 transition-transform text-xs">
-                    Explore Details →
+                    View home →
                   </span>
                 </div>
               </div>

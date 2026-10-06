@@ -102,8 +102,8 @@ export const DatePickerModal: React.FC<DatePickerModalProps> = ({ isOpen, onClos
               <CalendarIcon className="w-4 h-4 text-[#A3968E]" />
             </div>
             <div>
-              <span className="text-[10px] uppercase tracking-widest text-[#A3968E] block font-mono">Calendar & Stay Duration</span>
-              <h3 className="font-serif text-xl sm:text-2xl text-[#F5EBE6] font-normal">Select Stay Dates</h3>
+              <span className="text-[10px] uppercase tracking-widest text-[#A3968E] block font-mono">Dates</span>
+              <h3 className="font-serif text-xl sm:text-2xl text-[#F5EBE6] font-normal">Select stay dates</h3>
             </div>
           </div>
           <button
@@ -121,21 +121,21 @@ export const DatePickerModal: React.FC<DatePickerModalProps> = ({ isOpen, onClos
             onClick={() => applyPreset(7)}
             className="px-3 py-1.5 rounded-full bg-[#28201C] hover:bg-[#F5EBE6]/15 text-[#F5EBE6] text-[11px] font-medium border border-[#F5EBE6]/10 transition-colors"
           >
-            7 Nights · Focus Stay
+            7 nights
           </button>
           <button
             type="button"
             onClick={() => applyPreset(14)}
             className="px-3 py-1.5 rounded-full bg-[#28201C] hover:bg-[#F5EBE6]/15 text-[#F5EBE6] text-[11px] font-medium border border-[#F5EBE6]/10 transition-colors"
           >
-            14 Nights · Extended Stay
+            14 nights
           </button>
           <button
             type="button"
             onClick={() => applyPreset(30)}
             className="px-3 py-1.5 rounded-full bg-[#28201C] hover:bg-[#F5EBE6]/15 text-[#F5EBE6] text-[11px] font-medium border border-[#F5EBE6]/10 transition-colors"
           >
-            30 Nights · Monthly Residency
+            30 nights
           </button>
         </div>
 
@@ -207,9 +207,9 @@ export const DatePickerModal: React.FC<DatePickerModalProps> = ({ isOpen, onClos
         {/* Footer info & Apply */}
         <div className="mt-6 pt-4 border-t border-[#F5EBE6]/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
-            <span className="text-[10px] uppercase tracking-wider text-[#A3968E] block font-mono">Selected Window</span>
+            <span className="text-[10px] uppercase tracking-wider text-[#A3968E] block font-mono">Selected dates</span>
             <div className="text-xs font-medium text-[#F5EBE6] mt-0.5">
-              {tempCheckIn ? tempCheckIn : 'Select Check-in'} — {tempCheckOut ? tempCheckOut : 'Select Check-out'}
+              {tempCheckIn ? tempCheckIn : 'Select check-in'} — {tempCheckOut ? tempCheckOut : 'Select check-out'}
             </div>
           </div>
           <div className="flex items-center gap-2 w-full sm:w-auto">
@@ -227,9 +227,9 @@ export const DatePickerModal: React.FC<DatePickerModalProps> = ({ isOpen, onClos
               type="button"
               onClick={handleApply}
               disabled={!tempCheckIn || !tempCheckOut}
-              className="flex-1 sm:flex-none px-6 py-2.5 rounded-full bg-[#F5EBE6] text-[#120E0C] disabled:opacity-40 disabled:cursor-not-allowed hover:bg-white font-semibold text-xs shadow-md transition-all active:scale-95"
+              className="flex-1 sm:flex-none px-6 py-2.5 rounded-full bg-[#F5EBE6] text-[#120E0C] disabled:opacity-40 disabled:cursor-not-allowed hover:bg-white font-semibold text-xs shadow-md transition-all active:scale-95 cursor-pointer"
             >
-              Apply Dates
+              Apply dates
             </button>
           </div>
         </div>

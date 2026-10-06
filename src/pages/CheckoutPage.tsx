@@ -31,9 +31,9 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({ slug: propSlug }) =>
 
   const validateForm = () => {
     const errors: { fullName?: string; email?: string; phone?: string } = {};
-    if (!guestInfo.fullName.trim()) errors.fullName = 'Full legal name is required for registration.';
-    if (!guestInfo.email.trim() || !guestInfo.email.includes('@')) errors.email = 'Valid correspondence email is required.';
-    if (!guestInfo.phone.trim()) errors.phone = 'Contact telephone is required for keyless dispatch.';
+    if (!guestInfo.fullName.trim()) errors.fullName = 'Please enter your full name.';
+    if (!guestInfo.email.trim() || !guestInfo.email.includes('@')) errors.email = 'Please enter a valid email address.';
+    if (!guestInfo.phone.trim()) errors.phone = 'Please enter a phone number so we can text you arrival directions and your door code.';
     setFormErrors(errors);
     return Object.keys(errors).length === 0;
   };
@@ -70,8 +70,8 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({ slug: propSlug }) =>
       setConfirmedBooking(confirmation);
       setIsProcessing(false);
       showToast({
-        title: 'Reservation Confirmed',
-        message: `Reference ${ref} issued for ${property.title}. Keyless arrival credentials and concierge itinerary dispatched to ${guestInfo.email}.`,
+        title: 'Booking confirmed',
+        message: `Your reference is ${ref}. We sent confirmation details and your VAT receipt to ${guestInfo.email}.`,
         type: 'success',
         duration: 6500,
       });
@@ -83,8 +83,8 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({ slug: propSlug }) =>
     const willEnable = !bookingAddOns[key];
     toggleAddOn(key);
     showToast({
-      title: willEnable ? 'Add-On Added' : 'Add-On Removed',
-      message: `${ADDON_PRICING_USD[key].title} ${willEnable ? 'included in' : 'removed from'} your itinerary.`,
+      title: willEnable ? 'Extra added' : 'Extra removed',
+      message: `${ADDON_PRICING_USD[key].title} ${willEnable ? 'added to' : 'removed from'} your booking.`,
       type: 'info',
       duration: 3500,
     });
@@ -101,13 +101,13 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({ slug: propSlug }) =>
 
           <div className="text-center mb-8">
             <span className="text-xs uppercase tracking-[0.2em] font-mono text-emerald-400 block mb-2">
-              Reservation Confirmed & Verified
+              Booking confirmed
             </span>
             <h1 className="font-serif text-3xl sm:text-4xl text-[#F5EBE6] font-normal">
               You are all set for {confirmedBooking.property.title}
             </h1>
             <p className="text-xs text-[#A3968E] mt-2">
-              Booking Reference: <strong className="font-mono text-[#F5EBE6]">{confirmedBooking.bookingRef}</strong>
+              Booking reference: <strong className="font-mono text-[#F5EBE6]">{confirmedBooking.bookingRef}</strong>
             </p>
           </div>
 
@@ -115,24 +115,24 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({ slug: propSlug }) =>
           <div className="bg-[#28201C] border border-[#F5EBE6]/10 rounded-2xl p-6 mb-8 space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pb-4 border-b border-[#F5EBE6]/10 text-xs">
               <div>
-                <span className="text-[10px] uppercase font-mono text-[#A3968E] block">Lead Guest</span>
+                <span className="text-[10px] uppercase font-mono text-[#A3968E] block">Lead guest</span>
                 <span className="font-medium text-[#F5EBE6]">{confirmedBooking.guestInfo.fullName}</span>
                 <span className="text-[11px] text-[#A3968E] block">{confirmedBooking.guestInfo.email}</span>
               </div>
               <div>
-                <span className="text-[10px] uppercase font-mono text-[#A3968E] block">Stay Window</span>
+                <span className="text-[10px] uppercase font-mono text-[#A3968E] block">Dates</span>
                 <span className="font-medium text-[#F5EBE6]">
                   {confirmedBooking.checkIn} — {confirmedBooking.checkOut} ({confirmedBooking.nights} nights)
                 </span>
-                <span className="text-[11px] text-[#A3968E] block">{confirmedBooking.guests} Registered Guests</span>
+                <span className="text-[11px] text-[#A3968E] block">{confirmedBooking.guests} {confirmedBooking.guests === 1 ? 'Guest' : 'Guests'}</span>
               </div>
             </div>
 
             {/* Total Paid */}
             <div className="flex items-baseline justify-between pt-2">
               <div>
-                <span className="text-xs text-[#A3968E]">Grand Total Charged ({confirmedBooking.pricingBreakdown.currency})</span>
-                <span className="text-[10px] text-emerald-400 font-mono block">Payment Secured via {guestInfo.paymentMethod.toUpperCase()}</span>
+                <span className="text-xs text-[#A3968E]">Total paid ({confirmedBooking.pricingBreakdown.currency})</span>
+                <span className="text-[10px] text-emerald-400 font-mono block">Paid via {guestInfo.paymentMethod.toUpperCase()}</span>
               </div>
               <span className="font-serif text-2xl sm:text-3xl text-[#F5EBE6] font-semibold font-mono">
                 {formatPrice(confirmedBooking.pricingBreakdown.grandTotal)}
@@ -144,16 +144,16 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({ slug: propSlug }) =>
           <div className="p-6 rounded-2xl bg-[#120E0C] border border-[#F5EBE6]/10 mb-8 space-y-3">
             <h4 className="font-mono text-xs uppercase tracking-wider text-[#F5EBE6] flex items-center gap-2">
               <Clock className="w-4 h-4 text-amber-300" />
-              <span>What to expect next</span>
+              <span>What happens next</span>
             </h4>
             <p className="text-xs text-[#A3968E] leading-relaxed">
-              1. A copy of your reservation confirmation and VAT invoice has been sent to <strong>{confirmedBooking.guestInfo.email}</strong>.
+              1. A copy of your booking confirmation and VAT invoice has been sent to <strong>{confirmedBooking.guestInfo.email}</strong>.
             </p>
             <p className="text-xs text-[#A3968E] leading-relaxed">
-              2. Your encrypted 6-digit smart lock keypad PIN code will be activated and dispatched 24 hours prior to your check-in time of {property.checkInTime}.
+              2. Your 6-digit door code and detailed house directions will be sent 24 hours before your check-in time ({property.checkInTime}).
             </p>
             <p className="text-xs text-[#A3968E] leading-relaxed">
-              3. Our 24/7 dedicated residential concierge is available on WhatsApp at <strong>+234 812 345 6789</strong> for early arrivals, luggage drop-off, and special requests.
+              3. If you have any questions before then, message our WhatsApp desk at <strong>+234 812 345 6789</strong>.
             </p>
           </div>
 
@@ -161,19 +161,19 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({ slug: propSlug }) =>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={() => window.print()}
-              className="w-full sm:w-auto px-6 py-3 rounded-full bg-[#28201C] hover:bg-[#F5EBE6]/15 border border-[#F5EBE6]/15 text-xs text-[#F5EBE6] font-medium flex items-center justify-center gap-2 transition-colors"
+              className="w-full sm:w-auto px-6 py-3 rounded-full bg-[#28201C] hover:bg-[#F5EBE6]/15 border border-[#F5EBE6]/15 text-xs text-[#F5EBE6] font-medium flex items-center justify-center gap-2 transition-colors cursor-pointer"
             >
               <Printer className="w-4 h-4" />
-              <span>Print Guest Receipt</span>
+              <span>Print receipt</span>
             </button>
             <button
               onClick={() => {
                 setConfirmedBooking(null);
                 navigate('/residences');
               }}
-              className="w-full sm:w-auto px-8 py-3 rounded-full bg-[#F5EBE6] hover:bg-white text-[#120E0C] text-xs font-semibold uppercase tracking-wider transition-all shadow-md"
+              className="w-full sm:w-auto px-8 py-3 rounded-full bg-[#F5EBE6] hover:bg-white text-[#120E0C] text-xs font-semibold uppercase tracking-wider transition-all shadow-md cursor-pointer"
             >
-              Back to Residences
+              Browse other homes
             </button>
           </div>
         </div>
@@ -193,13 +193,13 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({ slug: propSlug }) =>
           {property.title}
         </button>
         <ChevronRight className="w-3 h-3 text-[#A3968E]/60" />
-        <span className="text-[#F5EBE6]">Checkout & Reserve</span>
+        <span className="text-[#F5EBE6]">Checkout</span>
       </div>
 
       <div className="mb-8">
-        <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#A3968E] block mb-2">Direct Booking</span>
+        <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#A3968E] block mb-2">Booking</span>
         <h1 className="font-serif text-3xl sm:text-5xl text-[#F5EBE6] font-normal">
-          Finalize Your Stay
+          Confirm your reservation
         </h1>
       </div>
 
@@ -215,13 +215,13 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({ slug: propSlug }) =>
               <span className="w-7 h-7 rounded-full bg-[#28201C] border border-[#F5EBE6]/10 flex items-center justify-center font-mono text-xs text-[#F5EBE6]">
                 1
               </span>
-              <h3 className="font-serif text-xl text-[#F5EBE6] font-normal">Guest Information</h3>
+              <h3 className="font-serif text-xl text-[#F5EBE6] font-normal">Your details</h3>
             </div>
 
             <div className="space-y-4">
               <div>
                 <label className="text-[10px] uppercase font-mono tracking-widest text-[#A3968E] block mb-1">
-                  Full Legal Name *
+                  Full name *
                 </label>
                 <div className="relative">
                   <User className="w-4 h-4 text-[#A3968E] absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -239,7 +239,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({ slug: propSlug }) =>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="text-[10px] uppercase font-mono tracking-widest text-[#A3968E] block mb-1">
-                    Email Address *
+                    Email address *
                   </label>
                   <div className="relative">
                     <Mail className="w-4 h-4 text-[#A3968E] absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -256,7 +256,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({ slug: propSlug }) =>
 
                 <div>
                   <label className="text-[10px] uppercase font-mono tracking-widest text-[#A3968E] block mb-1">
-                    Phone / WhatsApp *
+                    Phone number (for your door code and directions) *
                   </label>
                   <div className="relative">
                     <Phone className="w-4 h-4 text-[#A3968E] absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -275,23 +275,23 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({ slug: propSlug }) =>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="text-[10px] uppercase font-mono tracking-widest text-[#A3968E] block mb-1">
-                    Estimated Arrival Time
+                    Estimated arrival time
                   </label>
                   <select
                     value={guestInfo.arrivalTime}
                     onChange={e => updateGuestInfo('arrivalTime', e.target.value)}
                     className="w-full bg-[#28201C] border border-[#F5EBE6]/10 rounded-2xl py-2.5 px-3 text-xs text-[#F5EBE6] focus:outline-none focus:border-[#F5EBE6]/30 cursor-pointer"
                   >
-                    <option value="15:00" className="bg-[#1C1613]">15:00 (Standard Check-in)</option>
-                    <option value="16:00" className="bg-[#1C1613]">16:00 - 18:00 (Late Afternoon)</option>
-                    <option value="19:00" className="bg-[#1C1613]">19:00 - 21:00 (Evening)</option>
-                    <option value="22:00" className="bg-[#1C1613]">22:00+ (Late Night - Smart Lock Entry)</option>
+                    <option value="15:00" className="bg-[#1C1613]">3:00 PM (Standard check-in)</option>
+                    <option value="16:00" className="bg-[#1C1613]">4:00 PM - 6:00 PM (Late afternoon)</option>
+                    <option value="19:00" className="bg-[#1C1613]">7:00 PM - 9:00 PM (Evening)</option>
+                    <option value="22:00" className="bg-[#1C1613]">10:00 PM or later (Keypad self check-in)</option>
                   </select>
                 </div>
 
                 <div>
                   <label className="text-[10px] uppercase font-mono tracking-widest text-[#A3968E] block mb-1">
-                    Flight / Train # (Optional)
+                    Flight or train number (optional)
                   </label>
                   <input
                     type="text"
@@ -305,13 +305,13 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({ slug: propSlug }) =>
 
               <div>
                 <label className="text-[10px] uppercase font-mono tracking-widest text-[#A3968E] block mb-1">
-                  Special Requests / Dietary Restrictions
+                  Special requests or notes (optional)
                 </label>
                 <textarea
                   rows={2}
                   value={guestInfo.specialRequests}
                   onChange={e => updateGuestInfo('specialRequests', e.target.value)}
-                  placeholder="Tell our concierge about pillow preferences, oat milk stocking, or early arrival needs..."
+                  placeholder="Tell us about bed preferences, arrival notes, or any questions..."
                   className="w-full bg-[#28201C] border border-[#F5EBE6]/10 rounded-2xl p-3 text-xs text-[#F5EBE6] focus:outline-none focus:border-[#F5EBE6]/30"
                 />
               </div>
@@ -325,8 +325,8 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({ slug: propSlug }) =>
                 2
               </span>
               <div>
-                <h3 className="font-serif text-xl text-[#F5EBE6] font-normal">Bespoke Add-Ons & Provisioning</h3>
-                <p className="text-[11px] text-[#A3968E]">Optional luxury enhancements tailored to your stay duration</p>
+                <h3 className="font-serif text-xl text-[#F5EBE6] font-normal">Optional extras</h3>
+                <p className="text-[11px] text-[#A3968E]">Services you can add to your stay</p>
               </div>
             </div>
 
@@ -378,7 +378,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({ slug: propSlug }) =>
               <span className="w-7 h-7 rounded-full bg-[#28201C] border border-[#F5EBE6]/10 flex items-center justify-center font-mono text-xs text-[#F5EBE6]">
                 3
               </span>
-              <h3 className="font-serif text-xl text-[#F5EBE6] font-normal">Payment Method</h3>
+              <h3 className="font-serif text-xl text-[#F5EBE6] font-normal">Payment method</h3>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
@@ -392,8 +392,8 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({ slug: propSlug }) =>
                 }`}
               >
                 <CreditCard className="w-5 h-5 mb-2 text-[#F5EBE6]" />
-                <span className="text-xs font-medium block">Card / Paystack</span>
-                <span className="text-[10px] opacity-75 font-mono">Visa, MC, Verve</span>
+                <span className="text-xs font-medium block">Card</span>
+                <span className="text-[10px] opacity-75 font-mono">Visa, Mastercard, Verve</span>
               </button>
 
               <button
@@ -406,8 +406,8 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({ slug: propSlug }) =>
                 }`}
               >
                 <Building className="w-5 h-5 mb-2 text-[#F5EBE6]" />
-                <span className="text-xs font-medium block">Wire / Bank Transfer</span>
-                <span className="text-[10px] opacity-75 font-mono">USD, EUR, NGN</span>
+                <span className="text-xs font-medium block">Bank transfer</span>
+                <span className="text-[10px] opacity-75 font-mono">USD, EUR, GBP, NGN</span>
               </button>
 
               <button
@@ -420,7 +420,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({ slug: propSlug }) =>
                 }`}
               >
                 <Coins className="w-5 h-5 mb-2 text-[#F5EBE6]" />
-                <span className="text-xs font-medium block">Crypto Settlement</span>
+                <span className="text-xs font-medium block">Crypto</span>
                 <span className="text-[10px] opacity-75 font-mono">USDC / USDT</span>
               </button>
             </div>
@@ -428,7 +428,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({ slug: propSlug }) =>
             <div className="p-4 rounded-2xl bg-[#28201C] border border-[#F5EBE6]/5 text-xs text-[#A3968E] flex items-center gap-3">
               <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
               <span>
-                All transactions are processed through 256-bit encrypted end-to-end payment rails. Cards are pre-authorized upon confirmation.
+                Payments are processed over an encrypted connection. Free cancellation up to 48 hours before check-in.
               </span>
             </div>
           </div>
@@ -440,7 +440,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({ slug: propSlug }) =>
           <div className="bg-[#1C1613] border border-[#F5EBE6]/20 rounded-3xl p-6 sm:p-8 shadow-2xl">
             
             <span className="text-[10px] uppercase tracking-widest text-[#A3968E] font-mono block mb-4">
-              Booking Summary
+              Summary
             </span>
 
             {/* Selected Property Cardlet */}
@@ -458,7 +458,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({ slug: propSlug }) =>
                   {property.title}
                 </h4>
                 <p className="text-[11px] text-[#A3968E] mt-0.5">
-                  {property.scaleSqFt} sq ft · {property.bedrooms} Bed · 1Gbps Fiber
+                  {property.scaleSqFt} sq ft · {property.bedrooms} Bed · Fiber Wi-Fi
                 </p>
               </div>
             </div>
@@ -488,36 +488,36 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({ slug: propSlug }) =>
                   <Users className="w-3.5 h-3.5" />
                   <span>Guests</span>
                 </span>
-                <span className="font-mono text-[#F5EBE6]">{searchParams.guests} Registered</span>
+                <span className="font-mono text-[#F5EBE6]">{searchParams.guests} {searchParams.guests === 1 ? 'Guest' : 'Guests'}</span>
               </div>
             </div>
 
             {/* Dynamic Cost Itemization */}
             <div className="py-4 border-b border-[#F5EBE6]/10 space-y-2.5 text-xs">
               <div className="flex items-center justify-between text-[#A3968E]">
-                <span>Base Rate ({pricing.nights} nights)</span>
+                <span>{formatPrice(property.pricePerNightUSD)} × {pricing.nights} nights</span>
                 <span className="font-mono text-[#F5EBE6]">{formatPrice(pricing.baseTotal)}</span>
               </div>
 
               <div className="flex items-center justify-between text-[#A3968E]">
-                <span>Sanitization & Cleaning</span>
+                <span>Cleaning fee</span>
                 <span className="font-mono text-[#F5EBE6]">{formatPrice(pricing.cleaningFee)}</span>
               </div>
 
               <div className="flex items-center justify-between text-[#A3968E]">
-                <span>Near Home Concierge (8%)</span>
+                <span>Service and support fee (8%)</span>
                 <span className="font-mono text-[#F5EBE6]">{formatPrice(pricing.serviceFee)}</span>
               </div>
 
               {pricing.addOnsTotal > 0 && (
                 <div className="flex items-center justify-between text-emerald-400">
-                  <span>Selected Add-Ons</span>
+                  <span>Selected extras</span>
                   <span className="font-mono">+{formatPrice(pricing.addOnsTotal)}</span>
                 </div>
               )}
 
               <div className="flex items-center justify-between text-[#A3968E]">
-                <span>Taxes & Mandatory Surcharges</span>
+                <span>Local taxes and fees</span>
                 <span className="font-mono text-[#F5EBE6]">{formatPrice(pricing.taxes)}</span>
               </div>
             </div>
@@ -525,7 +525,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({ slug: propSlug }) =>
             {/* Grand Total */}
             <div className="pt-4 flex items-baseline justify-between mb-6">
               <div>
-                <span className="text-xs text-[#A3968E] block">Total Due</span>
+                <span className="text-xs text-[#A3968E] block">Total to pay</span>
                 <span className="text-[10px] text-[#A3968E] font-mono">Currency: {pricing.currency}</span>
               </div>
               <span className="font-serif text-2xl sm:text-3xl text-[#F5EBE6] font-semibold font-mono">
@@ -541,17 +541,17 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({ slug: propSlug }) =>
               className="w-full py-4 rounded-full bg-[#F5EBE6] hover:bg-white text-[#120E0C] text-xs font-semibold uppercase tracking-wider transition-all shadow-xl active:scale-95 disabled:opacity-50 cursor-pointer flex items-center justify-center gap-2"
             >
               {isProcessing ? (
-                <span>Securing Reservation...</span>
+                <span>Confirming...</span>
               ) : (
                 <>
-                  <span>Confirm Reservation</span>
+                  <span>Confirm reservation</span>
                   <ChevronRight className="w-4 h-4" />
                 </>
               )}
             </button>
 
             <p className="text-[11px] text-[#A3968E] text-center mt-3 font-light">
-              By clicking confirm, you agree to the residence quiet hour policies and guest house rules.
+              Free cancellation up to 48 hours before check-in.
             </p>
           </div>
         </div>
