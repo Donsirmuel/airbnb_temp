@@ -90,7 +90,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
             Near Home
           </span>
           <span className={`text-[9px] uppercase tracking-[0.35em] font-mono mt-1 ${subtextColor}`}>
-            Architectural Sanctuaries
+            Homes & Workspaces
           </span>
         </div>
       </div>
@@ -113,7 +113,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
           Near Home
         </span>
         <span className={`uppercase font-mono mt-1 leading-none ${textSizes.desc} ${subtextColor}`}>
-          Sanctuaries & Stays
+          Homes & Workspaces
         </span>
       </div>
     </div>
